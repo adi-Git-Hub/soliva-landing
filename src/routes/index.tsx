@@ -1,58 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { LoadingPage } from "@/components/LoadingPage";
 import { Hero } from "@/components/Hero";
-import { VideoSection } from "@/components/VideoSection";
 import { ProblemSection } from "@/components/ProblemSection";
 import { TechSection } from "@/components/TechSection";
 import { CollectionSection } from "@/components/CollectionSection";
 import { CompareSection } from "@/components/CompareSection";
+import { VideoSection } from "@/components/VideoSection";
 import { FinalCTA } from "@/components/FinalCTA";
+import { LoadingPage } from "@/components/LoadingPage";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "SOLIVA SUNWRAP — Protection Designed For Daily Urban Exposure" },
+      { title: "SOLIVA SUNWRAP — Luxury Sun Protection" },
       {
         name: "description",
-        content:
-          "A pre-launch experience for SOLIVA SUNWRAP — UPF 50+ dual-layer sun protection engineered for real Indian commutes. Coming soon.",
-      },
-      { property: "og:title", content: "SOLIVA SUNWRAP — Coming Soon" },
-      {
-        property: "og:description",
-        content: "Thoughtfully layered. Effortlessly worn. Join the launch.",
+        content: "SOLIVA SUNWRAP — A new era of luxury sun protection.",
       },
     ],
   }),
 });
 
-function HomeContent() {
-  return (
-    <>
-      <Hero />
-      <VideoSection />
-      <ProblemSection />
-      <TechSection />
-      <CollectionSection />
-      <CompareSection />
-      <FinalCTA />
-    </>
-  );
-}
-
 function Index() {
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <>
       {loading && <LoadingPage onComplete={() => setLoading(false)} />}
-      {!loading && (
-        <main className="relative min-h-screen bg-cinematic-dark">
-          <HomeContent />
-        </main>
-      )}
+      <main className={`flex min-h-screen flex-col bg-white transition-opacity duration-1000 ${loading ? "opacity-0" : "opacity-100"}`}>
+        <Hero />
+        <VideoSection />
+        <ProblemSection />
+        <TechSection />
+        <CollectionSection />
+        <CompareSection />
+        <FinalCTA />
+      </main>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Particles } from "./Particles";
+import { SolivaLogo } from "./SolivaLogo";
 
 export function IntroLoader({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
@@ -35,47 +36,13 @@ export function IntroLoader({ onComplete }: { onComplete: () => void }) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center px-6">
-        {/* Logo mark */}
-        <div className="logo-glow fade-in-slow mb-8">
-          <svg width="84" height="84" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="22" stroke="url(#g1)" strokeWidth="1.5" />
-            <circle cx="50" cy="50" r="8" fill="url(#g1)" />
-            {Array.from({ length: 12 }).map((_, i) => {
-              const angle = (i * 30 * Math.PI) / 180;
-              const x1 = 50 + Math.cos(angle) * 28;
-              const y1 = 50 + Math.sin(angle) * 28;
-              const x2 = 50 + Math.cos(angle) * 40;
-              const y2 = 50 + Math.sin(angle) * 40;
-              return (
-                <line
-                  key={i}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="url(#g1)"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                />
-              );
-            })}
-            <defs>
-              <linearGradient id="g1" x1="0" y1="0" x2="100" y2="100">
-                <stop offset="0%" stopColor="#ff7c00" />
-                <stop offset="100%" stopColor="#f5f5dc" />
-              </linearGradient>
-            </defs>
-          </svg>
+        {/* Logo mark - Replaced with official logo asset */}
+        <div className="mb-8 flex justify-center animate-premium-pulse">
+          <SolivaLogo size={120} className="text-orange-glow" />
         </div>
 
-        <h1
-          className="font-display text-cream text-4xl md:text-5xl tracking-[0.4em] reveal-up"
-          style={{ animationDelay: "0.3s" }}
-        >
-          SOLIVA
-        </h1>
         <p
-          className="mt-2 text-xs tracking-[0.6em] text-cream/60 reveal-up"
+          className="mt-2 text-xs tracking-[0.6em] text-cream/60 reveal-up uppercase font-light"
           style={{ animationDelay: "0.6s" }}
         >
           SUNWRAP

@@ -24,41 +24,41 @@ export function ProblemSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-cinematic-warm py-28 md:py-40 perspective-2000"
+      className="relative w-full overflow-hidden bg-cinematic-warm py-24 md:py-32 perspective-2000"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="mx-auto max-w-2xl text-center reveal-on-scroll">
-          <span className="text-[10px] tracking-[0.5em] text-orange-glow">— THE PROBLEM</span>
-          <h2 className="font-display mt-4 text-4xl md:text-6xl text-brown-deep leading-[1.05]">
+          <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium">— THE PROBLEM</span>
+          <h2 className="font-display mt-6 text-4xl md:text-6xl text-brown-deep leading-[1.2]">
             Three failures we
             <br />
             <span className="italic">stopped accepting.</span>
           </h2>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-3">
           {blocks.map((b, i) => (
             <div
               key={b.title}
-              className="reveal-on-scroll group relative overflow-hidden rounded-sm bg-cream border border-brown/10 p-8 transition-all duration-700 hover:-translate-y-4 hover:rotate-X-2 hover:shadow-[0_40px_80px_-20px_rgba(122,73,0,0.3)] light-sweep"
+              className="reveal-on-scroll group relative flex flex-col items-center text-center overflow-hidden rounded-sm bg-cream border border-brown/10 p-10 transition-all duration-700 hover:-translate-y-2 light-sweep"
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="relative aspect-square overflow-hidden rounded-sm bg-cinematic-dark grain transform-gpu transition-transform duration-700 group-hover:scale-105">
+              <div className="relative w-full aspect-square overflow-hidden rounded-sm bg-cinematic-dark grain transform-gpu transition-transform duration-700 group-hover:scale-105">
                 <div className="absolute inset-0">
-                  <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-glow/40 blur-[60px] group-hover:bg-orange-glow/70 transition-colors" />
+                  <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-glow/40 blur-[60px]" />
                 </div>
                 <ProblemVisual kind={b.visual} />
-                <div className="absolute bottom-4 left-4 font-mono text-[10px] tracking-[0.3em] text-cream/60">
+                <div className="absolute bottom-4 left-4 font-mono text-[9px] tracking-[0.2em] text-cream/60">
                   0{i + 1}
                 </div>
               </div>
-              <h3 className="font-display mt-6 text-3xl tracking-[0.2em] text-brown-deep group-hover:text-orange-glow transition-colors">{b.title}</h3>
-              <p className="mt-3 text-sm text-brown leading-relaxed opacity-80">{b.desc}</p>
+              <h3 className="font-display mt-8 text-2xl tracking-[0.1em] text-brown-deep group-hover:text-orange-glow transition-colors">{b.title}</h3>
+              <p className="mt-4 text-sm text-brown/70 leading-relaxed font-light">{b.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="reveal-on-scroll mx-auto mt-20 max-w-2xl text-center font-display text-2xl md:text-3xl italic text-brown-deep/80" style={{ transitionDelay: "400ms" }}>
+        <p className="reveal-on-scroll mx-auto mt-20 max-w-2xl text-center font-display text-2xl md:text-3xl italic text-brown-deep/60" style={{ transitionDelay: "400ms" }}>
           "Makeshift solutions were never designed to protect you."
         </p>
       </div>
