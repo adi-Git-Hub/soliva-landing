@@ -200,7 +200,7 @@
   }
   @keyframes scrollDot {
     0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY: 24px; opacity: 0; }
+    100% { transform: translateY(24px); opacity: 0; }
   }
   .reveal-up {
     animation: revealUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
