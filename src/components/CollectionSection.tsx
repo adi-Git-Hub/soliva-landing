@@ -1,59 +1,116 @@
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const products = [
-  { name: "The Daybreak", desc: "Cream / Sand", price: "₹ 1,490", tone: "from-cream to-orange-glow/40" },
-  { name: "The Nomad", desc: "Tobacco / Brown", price: "₹ 1,690", tone: "from-orange-glow/60 to-brown" },
-  { name: "The Eclipse", desc: "Deep Brown / Onyx", price: "₹ 1,890", tone: "from-brown to-brown-deep" },
+  { 
+    name: "Blush Pink", 
+    desc: "Soft Petal / Morning Dew", 
+    status: "Launching First",
+    tone: "from-[oklch(0.95_0.05_10)] to-[oklch(0.85_0.1_15)]" 
+  },
+  { 
+    name: "Classic Beige", 
+    desc: "Urban Sand / Desert Stone", 
+    status: "Premium Edition",
+    tone: "from-cream to-orange-glow/20" 
+  },
+  { 
+    name: "Zesty Lime", 
+    desc: "Electric Citron / Fresh Bloom", 
+    status: "New Release",
+    tone: "from-[oklch(0.98_0.15_130)] to-[oklch(0.88_0.2_140)]" 
+  },
+  { 
+    name: "Green", 
+    desc: "Forest Shade / Jungle Mist", 
+    status: "Natural Edition",
+    tone: "from-[oklch(0.85_0.12_150)] to-[oklch(0.65_0.15_160)]" 
+  },
+  { 
+    name: "Deep Blue", 
+    desc: "Midnight Navy / Cobalt Deep", 
+    status: "Limited Edition",
+    tone: "from-[oklch(0.45_0.15_260)] to-[oklch(0.25_0.2_270)]" 
+  },
 ];
 
 const trust = ["UPF 50+", "DUAL LAYER", "FULL COVERAGE", "LIGHTWEIGHT", "BREATHABLE"];
 
 export function CollectionSection() {
+  const containerRef = useScrollReveal();
   const loop = [...trust, ...trust, ...trust];
+
   return (
-    <section className="relative w-full overflow-hidden bg-cinematic-warm py-28 md:py-40">
+    <section 
+      ref={containerRef}
+      className="relative w-full overflow-hidden bg-cinematic-warm py-28 md:py-48 perspective-2000"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <span className="text-[10px] tracking-[0.5em] text-orange-glow">— THE COLLECTION</span>
-            <h2 className="font-display mt-4 text-4xl md:text-6xl text-brown-deep leading-[1.05]">
-              Three editions.
-              <br />
-              <span className="italic">One philosophy.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-sm text-brown leading-relaxed">
-            Launching with three signature wraps, each tuned for a different light, season, and city.
+        <div className="flex flex-col items-center text-center reveal-on-scroll mb-24">
+          <span className="text-[10px] tracking-[0.6em] text-orange-glow uppercase mb-4">— PREVIEW COLLECTION</span>
+          <h2 className="font-display text-5xl md:text-7xl text-brown-deep leading-[1.1]">
+            Five editions.
+            <br />
+            <span className="italic">One philosophy.</span>
+          </h2>
+          <div className="mt-8 h-px w-24 bg-brown/20" />
+          <p className="mt-8 max-w-lg text-sm md:text-base text-brown/70 leading-relaxed font-light">
+            An exclusive first look at the launch editions. Engineered for the transition from dawn to dusk.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-5">
           {products.map((p, i) => (
             <article
               key={p.name}
-              className="group relative overflow-hidden rounded-sm bg-cream border border-brown/10 transition-all hover:-translate-y-3 hover:shadow-[0_40px_80px_-30px_rgba(122,73,0,0.4)]"
+              className="reveal-on-scroll group relative flex flex-col transition-all duration-1000"
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className={`relative aspect-[3/4] overflow-hidden bg-gradient-to-br ${p.tone}`}>
-                <div className="absolute inset-0 grain opacity-50" />
-                <div className="absolute left-1/2 top-1/2 h-72 w-44 -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-cream/30 blur-2xl group-hover:bg-cream/50 transition-all" />
-                {/* Abstract scarf silhouette */}
-                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 400">
-                  <ellipse cx="150" cy="200" rx="80" ry="160" fill="oklch(1 0 0 / 0.18)" />
-                  <ellipse cx="150" cy="200" rx="50" ry="140" fill="oklch(1 0 0 / 0.12)" />
-                </svg>
-                <div className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.3em] text-cream/90">
-                  EDITION 0{i + 1}
+              {/* Immersive Image Container */}
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-brown/5 bg-cream transition-all duration-700 group-hover:shadow-[0_40px_120px_-40px_rgba(122,73,0,0.3)] group-hover:-translate-y-2">
+                <div className={`absolute inset-0 bg-gradient-to-br ${p.tone} opacity-80 group-hover:opacity-100 transition-opacity duration-700`} />
+                <div className="absolute inset-0 grain opacity-40 mix-blend-overlay" />
+                
+                {/* Dynamic Lighting Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                
+                {/* Abstract Visual Shape */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <svg className="h-[120%] w-[120%] opacity-20 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-110" viewBox="0 0 300 400">
+                    <ellipse cx="150" cy="200" rx="90" ry="180" fill="oklch(1 0 0 / 0.1)" />
+                    <ellipse cx="150" cy="200" rx="60" ry="150" fill="oklch(1 0 0 / 0.1)" />
+                  </svg>
                 </div>
-                <div className="absolute top-4 right-4 rounded-full bg-cream/20 px-3 py-1 text-[9px] tracking-[0.3em] text-cream backdrop-blur">
-                  COMING SOON
+
+                {/* Refined Metadata - Top */}
+                <div className="absolute top-8 left-8 flex flex-col gap-1">
+                  <span className="font-mono text-[9px] tracking-[0.5em] text-cream/40 uppercase">EDITION</span>
+                  <span className="font-mono text-xs tracking-[0.4em] text-cream/80">0{i + 1}</span>
+                </div>
+
+                {/* Coming Soon Pill - Intentional & Elegant */}
+                <div className="absolute top-8 right-8">
+                  <div className="rounded-full border border-cream/20 bg-black/10 px-5 py-2 text-[10px] tracking-[0.4em] text-cream backdrop-blur-xl shadow-lg transition-transform duration-700 group-hover:scale-110">
+                    {p.status}
+                  </div>
+                </div>
+
+                {/* Visual Label - Bottom */}
+                <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+                  <div className="h-px flex-1 bg-gradient-to-r from-cream/30 to-transparent mb-1" />
+                  <span className="font-mono text-[8px] tracking-[0.6em] text-cream/40 uppercase ml-4">SOLIVA_ENGINEERED</span>
                 </div>
               </div>
-              <div className="flex items-end justify-between p-6">
-                <div>
-                  <h3 className="font-display text-2xl text-brown-deep">{p.name}</h3>
-                  <p className="mt-1 text-xs tracking-[0.3em] text-brown/60">{p.desc}</p>
-                </div>
-                <div className="text-right">
-                  <div className="text-xs tracking-[0.3em] text-brown/50">FROM</div>
-                  <div className="font-display text-xl text-orange-glow">{p.price}</div>
+              
+              {/* Typography Content - Now more breathable */}
+              <div className="mt-8 text-center px-4">
+                <h3 className="font-display text-2xl text-brown-deep tracking-tight mb-2 group-hover:text-orange-glow transition-colors duration-500">
+                  {p.name}
+                </h3>
+                <p className="text-[9px] tracking-[0.5em] text-brown/40 uppercase font-light">
+                  {p.desc}
+                </p>
+                <div className="mt-4 flex justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700">
+                  <span className="text-[9px] tracking-[0.4em] text-orange-glow font-medium">REVEAL ON LAUNCH</span>
                 </div>
               </div>
             </article>
@@ -61,12 +118,13 @@ export function CollectionSection() {
         </div>
       </div>
 
-      <div className="relative mt-24 border-y border-brown/15 bg-cream/40 py-5 overflow-hidden">
-        <div className="marquee flex w-max gap-16 whitespace-nowrap">
+      {/* Marquee - More Integrated & Subtle */}
+      <div className="reveal-on-scroll relative mt-40 border-y border-brown/5 bg-cream/20 py-10 overflow-hidden">
+        <div className="marquee flex w-max gap-24 whitespace-nowrap opacity-40 hover:opacity-100 transition-opacity duration-700">
           {loop.map((t, i) => (
-            <span key={i} className="flex items-center gap-16 font-display text-2xl text-brown-deep/70">
+            <span key={i} className="flex items-center gap-24 font-display text-3xl text-brown-deep tracking-[0.1em] cursor-default">
               {t}
-              <span className="text-orange-glow">✦</span>
+              <span className="text-orange-glow/40 font-serif">✦</span>
             </span>
           ))}
         </div>

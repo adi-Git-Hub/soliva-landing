@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { IntroLoader } from "@/components/IntroLoader";
+import { LoadingPage } from "@/components/LoadingPage";
 import { Hero } from "@/components/Hero";
 import { VideoSection } from "@/components/VideoSection";
 import { ProblemSection } from "@/components/ProblemSection";
@@ -28,12 +28,9 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-function Index() {
-  const [loading, setLoading] = useState(true);
-
+function HomeContent() {
   return (
-    <main className="relative">
-      {loading && <IntroLoader onComplete={() => setLoading(false)} />}
+    <>
       <Hero />
       <VideoSection />
       <ProblemSection />
@@ -41,6 +38,21 @@ function Index() {
       <CollectionSection />
       <CompareSection />
       <FinalCTA />
-    </main>
+    </>
+  );
+}
+
+function Index() {
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <>
+      {loading && <LoadingPage onComplete={() => setLoading(false)} />}
+      {!loading && (
+        <main className="relative min-h-screen bg-cinematic-dark">
+          <HomeContent />
+        </main>
+      )}
+    </>
   );
 }

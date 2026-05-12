@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const features = [
   { tag: "01", title: "UPF 50+ Protection", desc: "Engineered to block 98% of UVA/UVB rays during peak commute hours." },
   { tag: "02", title: "Breathable Dual Layer", desc: "Two micro-perforated layers that exchange heat without losing coverage." },
@@ -7,25 +10,37 @@ const features = [
 ];
 
 export function TechSection() {
+  const containerRef = useScrollReveal();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section className="relative w-full overflow-hidden bg-cinematic-dark grain py-28 md:py-40">
+    <section 
+      ref={containerRef}
+      className="relative w-full overflow-hidden bg-cinematic-dark grain py-28 md:py-40 perspective-2000"
+    >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-orange-glow/15 blur-[120px]" />
+        <div 
+          className="absolute left-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-orange-glow/15 blur-[120px] will-change-transform" 
+          style={{ transform: `translate3d(0, ${scrollY * 0.1}px, 0)` }}
+        />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:grid-cols-2 md:px-12">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:grid-cols-2 md:px-12 items-center">
         {/* 3D scarf object */}
-        <div className="relative flex items-center justify-center min-h-[500px]">
-          <div className="absolute inset-0 flex items-center justify-center rotate-slow">
+        <div className="reveal-on-scroll relative flex items-center justify-center min-h-[500px] transform-gpu">
+          <div className="absolute inset-0 flex items-center justify-center rotate-slow scale-110 opacity-60">
             <svg viewBox="0 0 400 400" className="h-full w-full max-w-md">
               <defs>
                 <linearGradient id="scarf" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#ff7c00" stopOpacity="0.9" />
                   <stop offset="100%" stopColor="#7a4900" stopOpacity="0.4" />
                 </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" />
-                </filter>
               </defs>
               {Array.from({ length: 24 }).map((_, i) => {
                 const r = 80 + i * 4;
@@ -46,11 +61,19 @@ export function TechSection() {
               })}
             </svg>
           </div>
-          <div className="relative float-y">
-            <div className="h-48 w-48 rounded-full bg-orange-glow/20 blur-3xl" />
+          
+          <div 
+            className="relative float-y will-change-transform"
+            style={{ transform: `translate3d(0, ${scrollY * -0.05}px, 0) rotateY(${scrollY * 0.05}deg)` }}
+          >
+            <div className="h-48 w-48 rounded-full bg-orange-glow/30 blur-3xl animate-pulse" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-32 w-32 rounded-full border border-orange-glow/20 backdrop-blur-sm" />
+            </div>
           </div>
+
           {/* airflow lines */}
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 500">
+          <svg className="absolute inset-0 h-full w-full pointer-events-none" viewBox="0 0 400 500">
             {[0, 1, 2, 3].map((i) => (
               <path
                 key={i}
@@ -69,19 +92,25 @@ export function TechSection() {
 
         {/* Tech features */}
         <div className="flex flex-col justify-center">
-          <span className="text-[10px] tracking-[0.5em] text-orange-glow">— FABRIC TECHNOLOGY</span>
-          <h2 className="font-display mt-4 text-4xl md:text-5xl text-cream leading-[1.1]">
-            Engineered as a
-            <br />
-            <span className="italic text-orange-glow">single layer of relief.</span>
-          </h2>
-          <div className="mt-12 space-y-6">
-            {features.map((f) => (
-              <div key={f.tag} className="group flex gap-6 border-t border-cream/10 pt-6">
-                <span className="font-mono text-xs text-orange-glow tracking-widest">{f.tag}</span>
+          <div className="reveal-on-scroll">
+            <span className="text-[10px] tracking-[0.5em] text-orange-glow uppercase">— FABRIC TECHNOLOGY</span>
+            <h2 className="font-display mt-4 text-4xl md:text-5xl text-cream leading-[1.1]">
+              Engineered as a
+              <br />
+              <span className="italic text-orange-glow">single layer of relief.</span>
+            </h2>
+          </div>
+          <div className="mt-12 space-y-4">
+            {features.map((f, i) => (
+              <div 
+                key={f.tag} 
+                className="reveal-on-scroll group flex gap-6 border-t border-cream/10 pt-6 light-sweep cursor-default"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <span className="font-mono text-xs text-orange-glow tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">{f.tag}</span>
                 <div className="flex-1">
-                  <h4 className="font-display text-xl text-cream group-hover:text-orange-glow transition-colors">{f.title}</h4>
-                  <p className="mt-2 text-sm text-cream/60 leading-relaxed">{f.desc}</p>
+                  <h4 className="font-display text-xl text-cream group-hover:text-orange-glow transition-all duration-500 transform group-hover:translate-x-2">{f.title}</h4>
+                  <p className="mt-2 text-sm text-cream/50 leading-relaxed group-hover:text-cream/80 transition-colors">{f.desc}</p>
                 </div>
               </div>
             ))}

@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const blocks = [
   {
     title: "SLIPS",
@@ -17,10 +19,15 @@ const blocks = [
 ];
 
 export function ProblemSection() {
+  const containerRef = useScrollReveal();
+
   return (
-    <section className="relative w-full overflow-hidden bg-cinematic-warm py-28 md:py-40">
+    <section 
+      ref={containerRef}
+      className="relative w-full overflow-hidden bg-cinematic-warm py-28 md:py-40 perspective-2000"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center reveal-on-scroll">
           <span className="text-[10px] tracking-[0.5em] text-orange-glow">— THE PROBLEM</span>
           <h2 className="font-display mt-4 text-4xl md:text-6xl text-brown-deep leading-[1.05]">
             Three failures we
@@ -33,9 +40,10 @@ export function ProblemSection() {
           {blocks.map((b, i) => (
             <div
               key={b.title}
-              className="group relative overflow-hidden rounded-sm bg-cream border border-brown/10 p-8 transition-all hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(122,73,0,0.35)]"
+              className="reveal-on-scroll group relative overflow-hidden rounded-sm bg-cream border border-brown/10 p-8 transition-all duration-700 hover:-translate-y-4 hover:rotate-X-2 hover:shadow-[0_40px_80px_-20px_rgba(122,73,0,0.3)] light-sweep"
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="relative aspect-square overflow-hidden rounded-sm bg-cinematic-dark grain">
+              <div className="relative aspect-square overflow-hidden rounded-sm bg-cinematic-dark grain transform-gpu transition-transform duration-700 group-hover:scale-105">
                 <div className="absolute inset-0">
                   <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-glow/40 blur-[60px] group-hover:bg-orange-glow/70 transition-colors" />
                 </div>
@@ -44,16 +52,19 @@ export function ProblemSection() {
                   0{i + 1}
                 </div>
               </div>
-              <h3 className="font-display mt-6 text-3xl tracking-[0.2em] text-brown-deep">{b.title}</h3>
-              <p className="mt-3 text-sm text-brown leading-relaxed">{b.desc}</p>
+              <h3 className="font-display mt-6 text-3xl tracking-[0.2em] text-brown-deep group-hover:text-orange-glow transition-colors">{b.title}</h3>
+              <p className="mt-3 text-sm text-brown leading-relaxed opacity-80">{b.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="font-display mx-auto mt-20 max-w-2xl text-center text-2xl md:text-3xl italic text-brown-deep/80">
+        <p className="reveal-on-scroll mx-auto mt-20 max-w-2xl text-center font-display text-2xl md:text-3xl italic text-brown-deep/80" style={{ transitionDelay: "400ms" }}>
           "Makeshift solutions were never designed to protect you."
         </p>
       </div>
+      
+      {/* Cinematic Depth Element */}
+      <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-orange-glow/5 blur-[120px] pointer-events-none" />
     </section>
   );
 }
