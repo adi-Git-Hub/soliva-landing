@@ -16,27 +16,35 @@ export function VideoSection() {
     <section className="relative w-full overflow-hidden bg-cinematic-warm py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 md:grid-cols-2 md:gap-16 md:px-12">
         {/* Video placeholder */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-cinematic-dark grain">
-          <Particles count={20} />
-          <div className="absolute inset-0">
-            <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-glow/30 blur-[100px]" />
-          </div>
+        <div className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-cinematic-dark grain">
+          <Particles count={24} />
+          {/* layered amber gradients */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at 30% 30%, oklch(0.78 0.18 55 / 0.55), transparent 60%), radial-gradient(ellipse at 80% 80%, oklch(0.45 0.09 60 / 0.7), transparent 60%), linear-gradient(160deg, oklch(0.5 0.11 55), oklch(0.22 0.05 50))",
+            }}
+          />
+          {/* light leaks */}
+          <div className="absolute -top-1/4 left-1/4 h-1/2 w-1/3 rotate-12 bg-gradient-to-b from-orange-glow/40 via-cream/15 to-transparent blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 h-1/2 w-1/4 -rotate-12 bg-gradient-to-t from-cream/25 to-transparent blur-3xl" />
           {/* glass reflections */}
-          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-cream/10 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-cream/15 to-transparent" />
+          <div className="absolute inset-y-0 left-1/4 w-px bg-gradient-to-b from-transparent via-cream/30 to-transparent" />
+          {/* vignette */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.55)_100%)]" />
+          {/* cinematic 3d coming soon */}
+          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: "1000px" }}>
             <h3
-              className="text-3d-float font-display text-4xl md:text-6xl tracking-[0.18em] text-cream"
-              style={{
-                textShadow:
-                  "1px 1px 0 #c46300, 2px 2px 0 #864300, 3px 3px 14px rgba(255,124,0,0.6), 0 0 60px rgba(255,124,0,0.4)",
-              }}
+              className="cinematic-3d depth-float font-display text-3xl md:text-5xl tracking-[0.18em] text-cream transition-transform duration-700 group-hover:scale-105"
             >
               COMING SOON
             </h3>
           </div>
           {/* Playback ui */}
-          <div className="absolute inset-x-6 bottom-6 flex items-center gap-4 text-cream/70">
-            <div className="h-8 w-8 rounded-full border border-cream/40 flex items-center justify-center">
+          <div className="absolute inset-x-6 bottom-6 flex items-center gap-4 text-cream/80">
+            <div className="h-9 w-9 rounded-full border border-cream/40 flex items-center justify-center backdrop-blur-md bg-black/20">
               <div className="h-0 w-0 border-l-[8px] border-l-cream border-y-[5px] border-y-transparent ml-0.5" />
             </div>
             <div className="h-px flex-1 bg-cream/20">
