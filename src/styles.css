@@ -258,6 +258,36 @@
     from { transform: translateX(0) scale(1.05); }
     to { transform: translateX(40px) scale(1.1); }
   }
+  .cinematic-3d {
+    text-shadow:
+      0 1px 0 oklch(0.6 0.14 55),
+      0 2px 0 oklch(0.55 0.13 55),
+      0 3px 0 oklch(0.5 0.12 55),
+      0 4px 0 oklch(0.45 0.11 55),
+      0 5px 0 oklch(0.4 0.1 55),
+      0 6px 0 oklch(0.35 0.09 55),
+      0 8px 1px oklch(0 0 0 / 0.25),
+      0 12px 28px oklch(0 0 0 / 0.5),
+      0 0 40px oklch(0.72 0.19 50 / 0.45),
+      0 0 90px oklch(0.72 0.19 50 / 0.25);
+  }
+  .depth-float {
+    animation: depthFloat 9s ease-in-out infinite;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .depth-float-delayed {
+    animation: depthFloat 9s ease-in-out infinite;
+    animation-delay: -4.5s;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  @keyframes depthFloat {
+    0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
+    25% { transform: translate3d(-6px, -8px, 30px) rotateX(2deg) rotateY(-2deg); }
+    50% { transform: translate3d(0, -14px, 60px) rotateX(0deg) rotateY(0deg); }
+    75% { transform: translate3d(6px, -8px, 30px) rotateX(-2deg) rotateY(2deg); }
+  }
   .particle {
     position: absolute;
     border-radius: 9999px;
