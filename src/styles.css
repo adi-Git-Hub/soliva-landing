@@ -461,20 +461,3 @@
     }
   }
 }
-    <div className="fixed bottom-12 right-12 z-50 flex items-center gap-6">
-        <div className="flex flex-col items-end">
-          <span className="mb-2 font-mono text-[8px] uppercase tracking-[0.4em] text-[#3A2A1F]/40">
-            SCROLL TO EXPLORE
-          </span>
-          <div className="relative h-[1px] w-32 overflow-hidden bg-[#3A2A1F]/10">
-            <motion.div
-              style={{ scaleX: smoothProgress }}
-              className="absolute inset-0 origin-left bg-[#3A2A1F]"
-            />
-          </div>
-        </div>
-        <div className="font-display text-2xl italic text-[#3A2A1F]/20">Soliva</div>
-      </div>
-    </section>
-  );
-}
