@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/Hero";
-import { ProblemSection } from "@/components/ProblemSection";
-import { TechSection } from "@/components/TechSection";
+import { UrbanStorytelling } from "@/components/UrbanStorytelling";
 import { CollectionSection } from "@/components/CollectionSection";
 import { CompareSection } from "@/components/CompareSection";
 import { VideoSection } from "@/components/VideoSection";
@@ -35,11 +34,12 @@ function Index() {
   return (
     <>
       {loading && <LoadingPage onComplete={() => setLoading(false)} />}
-      <main className={`flex min-h-screen flex-col bg-white transition-opacity duration-1000 ${loading ? "opacity-0" : "opacity-100"}`}>
+      <main
+        className={`flex min-h-screen flex-col bg-white transition-opacity duration-1000 ${loading ? "opacity-0" : "opacity-100"}`}
+      >
         <Hero />
         <VideoSection />
-        <ProblemSection />
-        <TechSection />
+        <UrbanStorytelling />
         <CollectionSection />
         <CompareSection />
         <FinalCTA />

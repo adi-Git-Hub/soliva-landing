@@ -35,10 +35,11 @@ export function VideoSection() {
           {/* vignette */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.55)_100%)]" />
           {/* cinematic 3d coming soon */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: "1000px" }}>
-            <h3
-              className="cinematic-3d depth-float font-display text-3xl md:text-5xl tracking-[0.1em] text-cream transition-transform duration-700 group-hover:scale-105"
-            >
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ perspective: "1000px" }}
+          >
+            <h3 className="cinematic-3d depth-float font-display text-3xl md:text-5xl tracking-[0.1em] text-cream transition-transform duration-700 group-hover:scale-105">
               COMING SOON
             </h3>
           </div>
@@ -56,16 +57,18 @@ export function VideoSection() {
 
         {/* Editorial text */}
         <div className="flex flex-col justify-center">
-          <span className="text-[10px] tracking-[0.3em] text-brown/60 uppercase font-medium">— FILM 01</span>
+          <span className="text-[10px] tracking-[0.3em] text-brown/60 uppercase font-medium">
+            — FILM 01
+          </span>
           <h2 className="font-display mt-6 text-4xl md:text-5xl text-brown-deep leading-[1.2]">
             Built For Real
             <br />
             <span className="italic text-orange-glow">Daily Protection</span>
           </h2>
           <p className="mt-8 text-base text-brown/70 leading-relaxed max-w-md font-light">
-            Sun. Dust. Pollution. Heat. Indian commutes are demanding — and the way we
-            cover up was never designed for them. SOLIVA SUNWRAP is engineered as a
-            single, breathable, full-coverage layer for the hours that matter most.
+            Sun. Dust. Pollution. Heat. Indian commutes are demanding — and the way we cover up was
+            never designed for them. SOLIVA SUNWRAP is engineered as a single, breathable,
+            full-coverage layer for the hours that matter most.
           </p>
           <ul className="mt-10 space-y-4 text-sm text-brown-deep/80">
             {[
@@ -89,7 +92,10 @@ export function VideoSection() {
       <div className="relative mt-24 border-y border-brown/10 bg-cream/40 py-6 overflow-hidden">
         <div className="marquee flex w-max gap-16 whitespace-nowrap">
           {loop.map((t, i) => (
-            <span key={i} className="flex items-center gap-16 text-[10px] tracking-[0.2em] text-brown-deep/60 font-medium">
+            <span
+              key={i}
+              className="flex items-center gap-16 text-[10px] tracking-[0.2em] text-brown-deep/60 font-medium"
+            >
               {t}
               <span className="h-1 w-1 rounded-full bg-orange-glow/40" />
             </span>

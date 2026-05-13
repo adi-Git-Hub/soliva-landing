@@ -29,10 +29,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   /* Luxury Palette */
-  --luxury-beige: #F5EFE4;
-  --luxury-brown-dark: #3A2A1F;
-  --luxury-brown-accent: #8B5E3C;
-  --cream: #FDFBF7;
+  --luxury-beige: #f5efe4;
+  --luxury-brown-dark: #3a2a1f;
+  --luxury-brown-accent: #8b5e3c;
+  --cream: #fdfbf7;
   --orange-glow: #ff7c00;
 
   --color-luxury-beige: var(--luxury-beige);
@@ -49,10 +49,10 @@
   --radius: 0.5rem;
 
   /* SOLIVA palette */
-  --luxury-beige: #F5EFE4;
-  --luxury-brown-dark: #3A2A1F;
-  --luxury-brown-accent: #8B5E3C;
-  --cream: #FDFBF7;
+  --luxury-beige: #f5efe4;
+  --luxury-brown-dark: #3a2a1f;
+  --luxury-brown-accent: #8b5e3c;
+  --cream: #fdfbf7;
   --orange-glow: #ff7c00;
 
   --background: var(--luxury-beige);
@@ -90,7 +90,11 @@
   * {
     border-color: var(--color-border);
   }
-  html, body {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
@@ -109,7 +113,12 @@
   background:
     radial-gradient(ellipse 80% 60% at 20% 10%, oklch(0.72 0.19 50 / 0.25), transparent 60%),
     radial-gradient(ellipse 70% 50% at 90% 90%, oklch(0.45 0.09 60 / 0.55), transparent 65%),
-    linear-gradient(160deg, oklch(0.96 0.025 90) 0%, oklch(0.72 0.1 60) 55%, oklch(0.22 0.05 55) 100%);
+    linear-gradient(
+      160deg,
+      oklch(0.96 0.025 90) 0%,
+      oklch(0.72 0.1 60) 55%,
+      oklch(0.22 0.05 55) 100%
+    );
 }
 
 @utility bg-cinematic-dark {
@@ -178,34 +187,51 @@
     animation: marquee 40s linear infinite;
   }
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   .float-y {
     animation: floatY 6s ease-in-out infinite;
   }
   @keyframes floatY {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
   }
   .rotate-slow {
     animation: rotateSlow 24s linear infinite;
   }
   @keyframes rotateSlow {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
   .drift {
     animation: drift 18s ease-in-out infinite alternate;
   }
   @keyframes drift {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(40px, -30px, 0); }
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(40px, -30px, 0);
+    }
   }
   .text-shimmer {
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       oklch(0.72 0.19 50) 0%,
       oklch(0.96 0.025 90) 50%,
-      oklch(0.72 0.19 50) 100%);
+      oklch(0.72 0.19 50) 100%
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -213,47 +239,72 @@
     animation: shimmer 4s linear infinite;
   }
   @keyframes shimmer {
-    to { background-position: 200% center; }
+    to {
+      background-position: 200% center;
+    }
   }
   .scroll-dot {
     animation: scrollDot 2s ease-in-out infinite;
   }
   @keyframes scrollDot {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(24px); opacity: 0; }
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(24px);
+      opacity: 0;
+    }
   }
   .reveal-up {
     animation: revealUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
   @keyframes revealUp {
-    from { opacity: 0; transform: translateY(40px) scale(0.98) translateZ(-20px); filter: blur(10px); }
-    to { opacity: 1; transform: translateY(0) scale(1) translateZ(0); filter: blur(0); }
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98) translateZ(-20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1) translateZ(0);
+      filter: blur(0);
+    }
   }
   .fade-in-slow {
     animation: fadeInSlow 1.6s ease-out both;
   }
   @keyframes fadeInSlow {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   .progress-fill {
     animation: progressFill 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   @keyframes progressFill {
-    from { width: 0%; }
-    to { width: 100%; }
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
   .logo-glow {
     animation: logoGlow 3s ease-in-out infinite;
   }
   @keyframes logoGlow {
-    0%, 100% {
+    0%,
+    100% {
       filter: drop-shadow(0 0 10px oklch(0.72 0.19 50 / 0.5))
-              drop-shadow(0 0 30px oklch(0.72 0.19 50 / 0.3));
+        drop-shadow(0 0 30px oklch(0.72 0.19 50 / 0.3));
     }
     50% {
       filter: drop-shadow(0 0 20px oklch(0.72 0.19 50 / 0.8))
-              drop-shadow(0 0 60px oklch(0.72 0.19 50 / 0.5));
+        drop-shadow(0 0 60px oklch(0.72 0.19 50 / 0.5));
     }
   }
   .text-3d-float {
@@ -261,8 +312,13 @@
     transform-style: preserve-3d;
   }
   @keyframes text3dFloat {
-    0%, 100% { transform: perspective(800px) rotateX(8deg) rotateY(-4deg) translateY(0); }
-    50% { transform: perspective(800px) rotateX(4deg) rotateY(4deg) translateY(-10px); }
+    0%,
+    100% {
+      transform: perspective(800px) rotateX(8deg) rotateY(-4deg) translateY(0);
+    }
+    50% {
+      transform: perspective(800px) rotateX(4deg) rotateY(4deg) translateY(-10px);
+    }
   }
   .banner-slide-l {
     animation: bannerSlideL 30s ease-in-out infinite alternate;
@@ -271,12 +327,20 @@
     animation: bannerSlideR 30s ease-in-out infinite alternate;
   }
   @keyframes bannerSlideL {
-    from { transform: translateX(0) scale(1.05); }
-    to { transform: translateX(-40px) scale(1.1); }
+    from {
+      transform: translateX(0) scale(1.05);
+    }
+    to {
+      transform: translateX(-40px) scale(1.1);
+    }
   }
   @keyframes bannerSlideR {
-    from { transform: translateX(0) scale(1.05); }
-    to { transform: translateX(40px) scale(1.1); }
+    from {
+      transform: translateX(0) scale(1.05);
+    }
+    to {
+      transform: translateX(40px) scale(1.1);
+    }
   }
   .cinematic-3d {
     text-shadow:
@@ -303,10 +367,19 @@
     will-change: transform;
   }
   @keyframes depthFloat {
-    0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-    25% { transform: translate3d(-6px, -8px, 30px) rotateX(2deg) rotateY(-2deg); }
-    50% { transform: translate3d(0, -14px, 60px) rotateX(0deg) rotateY(0deg); }
-    75% { transform: translate3d(6px, -8px, 30px) rotateX(-2deg) rotateY(2deg); }
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translate3d(-6px, -8px, 30px) rotateX(2deg) rotateY(-2deg);
+    }
+    50% {
+      transform: translate3d(0, -14px, 60px) rotateX(0deg) rotateY(0deg);
+    }
+    75% {
+      transform: translate3d(6px, -8px, 30px) rotateX(-2deg) rotateY(2deg);
+    }
   }
   .particle {
     position: absolute;
@@ -316,12 +389,22 @@
     animation: particleFloat linear infinite;
   }
   @keyframes particleFloat {
-    0% { transform: translateY(0) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100vh) translateX(40px); opacity: 0; }
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(40px);
+      opacity: 0;
+    }
   }
-  
+
   /* NEW SCROLL UTILITIES */
   .reveal-on-scroll {
     opacity: 0;
@@ -335,7 +418,7 @@
     transform: translateY(0) scale(1);
     filter: blur(0);
   }
-  
+
   .light-sweep {
     position: relative;
     overflow: hidden;
@@ -369,12 +452,29 @@
     0% {
       opacity: 0.8;
       transform: scale(0.96);
-      filter: drop-shadow(0 4px 12px rgba(120,60,10,0.1)) blur(0.5px);
+      filter: drop-shadow(0 4px 12px rgba(120, 60, 10, 0.1)) blur(0.5px);
     }
     100% {
       opacity: 1;
       transform: scale(1);
-      filter: drop-shadow(0 8px 24px rgba(120,60,10,0.25)) blur(0px);
+      filter: drop-shadow(0 8px 24px rgba(120, 60, 10, 0.25)) blur(0px);
     }
   }
+}
+    <div className="fixed bottom-12 right-12 z-50 flex items-center gap-6">
+        <div className="flex flex-col items-end">
+          <span className="mb-2 font-mono text-[8px] uppercase tracking-[0.4em] text-[#3A2A1F]/40">
+            SCROLL TO EXPLORE
+          </span>
+          <div className="relative h-[1px] w-32 overflow-hidden bg-[#3A2A1F]/10">
+            <motion.div
+              style={{ scaleX: smoothProgress }}
+              className="absolute inset-0 origin-left bg-[#3A2A1F]"
+            />
+          </div>
+        </div>
+        <div className="font-display text-2xl italic text-[#3A2A1F]/20">Soliva</div>
+      </div>
+    </section>
+  );
 }

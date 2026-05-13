@@ -9,7 +9,7 @@ export function FinalCTA() {
   const containerRef = useScrollReveal();
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative w-full overflow-hidden bg-cinematic-dark grain py-24 md:py-32 perspective-2000"
     >
@@ -38,7 +38,7 @@ export function FinalCTA() {
             SOON
           </h2>
 
-          <p 
+          <p
             className="reveal-on-scroll font-display mt-10 text-xl md:text-2xl italic text-cream/80 text-shadow-sm"
             style={{ transitionDelay: "400ms" }}
           >
@@ -76,7 +76,7 @@ export function FinalCTA() {
           )}
         </div>
 
-        <div 
+        <div
           className="reveal-on-scroll mt-24 flex flex-col items-center gap-10 text-[9px] tracking-[0.3em] text-cream/60"
           style={{ transitionDelay: "800ms" }}
         >
@@ -91,7 +91,9 @@ export function FinalCTA() {
             <div className="opacity-60">
               <SolivaLogo size={50} />
             </div>
-            <div className="font-mono opacity-50 uppercase tracking-[0.1em] text-shadow-sm">© 2026 SOLIVA SUNWRAP — DESIGNED IN INDIA</div>
+            <div className="font-mono opacity-50 uppercase tracking-[0.1em] text-shadow-sm">
+              © 2026 SOLIVA SUNWRAP — DESIGNED IN INDIA
+            </div>
           </div>
         </div>
       </div>

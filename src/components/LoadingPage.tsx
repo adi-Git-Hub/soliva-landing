@@ -43,38 +43,48 @@ export function LoadingPage({ onComplete }: { onComplete: () => void }) {
 
       <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-sm">
         {/* Logo Fade + Scale */}
-        <div className={`mb-16 transition-all duration-[2000ms] cubic-bezier(0.2, 0.8, 0.2, 1) ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
+        <div
+          className={`mb-16 transition-all duration-[2000ms] cubic-bezier(0.2, 0.8, 0.2, 1) ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+        >
           <SolivaLogo height={80} />
         </div>
 
         {/* Branding Reveal */}
         <div className="flex flex-col items-center overflow-hidden">
-          <h1 className={`font-display text-4xl md:text-5xl tracking-[0.6em] text-[#3A2A1F] uppercase font-light mb-12 transition-all duration-[2500ms] ease-out ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}>
+          <h1
+            className={`font-display text-4xl md:text-5xl tracking-[0.6em] text-[#3A2A1F] uppercase font-light mb-12 transition-all duration-[2500ms] ease-out ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+          >
             SOLIVA
           </h1>
 
-          <div className={`w-64 flex flex-col items-center transition-opacity duration-[2000ms] delay-500 ${mounted ? "opacity-100" : "opacity-0"}`}>
-             <div className="flex justify-between w-full text-[9px] tracking-[0.5em] text-[#3A2A1F]/30 uppercase font-light mb-4">
-                <span>Initializing</span>
-                <span>{Math.floor(progress)}%</span>
-             </div>
-             
-             {/* Thin Premium Loading Line */}
-             <div className="h-[1px] w-full bg-[#3A2A1F]/5 overflow-hidden">
-                <div 
-                  className="h-full bg-[#8B5E3C] transition-all duration-100 ease-linear"
-                  style={{ width: `${progress}%` }}
-                />
-             </div>
+          <div
+            className={`w-64 flex flex-col items-center transition-opacity duration-[2000ms] delay-500 ${mounted ? "opacity-100" : "opacity-0"}`}
+          >
+            <div className="flex justify-between w-full text-[9px] tracking-[0.5em] text-[#3A2A1F]/30 uppercase font-light mb-4">
+              <span>Initializing</span>
+              <span>{Math.floor(progress)}%</span>
+            </div>
+
+            {/* Thin Premium Loading Line */}
+            <div className="h-[1px] w-full bg-[#3A2A1F]/5 overflow-hidden">
+              <div
+                className="h-full bg-[#8B5E3C] transition-all duration-100 ease-linear"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .grain {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
-      `}} />
+      `,
+        }}
+      />
     </div>
   );
 }

@@ -48,10 +48,7 @@ export function IntroLoader({ onComplete }: { onComplete: () => void }) {
           SUNWRAP
         </p>
 
-        <div
-          className="mt-12 text-3d-float reveal-up"
-          style={{ animationDelay: "1s" }}
-        >
+        <div className="mt-12 text-3d-float reveal-up" style={{ animationDelay: "1s" }}>
           <h2
             className="font-display text-5xl md:text-7xl text-cream/95 tracking-[0.2em]"
             style={{

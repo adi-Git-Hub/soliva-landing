@@ -23,7 +23,9 @@ export function CompareSection() {
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12">
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium text-shadow-sm">— THE COMPARISON</span>
+          <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium text-shadow-sm">
+            — THE COMPARISON
+          </span>
           <h2 className="font-display mt-6 text-4xl md:text-6xl text-cream leading-[1.2] text-shadow-sm">
             Still using a dupatta or
             <br />
@@ -35,13 +37,20 @@ export function CompareSection() {
           {/* Old Way Block */}
           <div className="relative bg-black/20 backdrop-blur-sm p-10 md:p-16 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50" />
-            
+
             <div className="relative z-10">
-              <div className="text-[10px] tracking-[0.3em] text-cream/60 mb-10 uppercase font-medium">THE OLD WAY</div>
-              <h3 className="font-display text-3xl text-cream/95 mb-10 text-shadow-sm">Borrowed protection.</h3>
+              <div className="text-[10px] tracking-[0.3em] text-cream/60 mb-10 uppercase font-medium">
+                THE OLD WAY
+              </div>
+              <h3 className="font-display text-3xl text-cream/95 mb-10 text-shadow-sm">
+                Borrowed protection.
+              </h3>
               <ul className="space-y-6">
                 {oldWay.map((t) => (
-                  <li key={t} className="flex items-start gap-4 text-cream/80 text-sm leading-relaxed font-light">
+                  <li
+                    key={t}
+                    className="flex items-start gap-4 text-cream/80 text-sm leading-relaxed font-light"
+                  >
                     <span className="mt-2.5 inline-block h-px w-6 bg-cream/30" />
                     <span className="text-shadow-sm">{t}</span>
                   </li>
@@ -54,13 +63,20 @@ export function CompareSection() {
           <div className="relative bg-orange-glow/5 backdrop-blur-md p-10 md:p-16 border-l md:border-l-0 md:border-t-0 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-glow/10 to-transparent opacity-30" />
             <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-orange-glow/40 to-transparent hidden md:block" />
-            
+
             <div className="relative z-10">
-              <div className="text-[10px] tracking-[0.3em] text-orange-glow mb-10 uppercase font-bold text-shadow-sm">SOLIVA SUNWRAP</div>
-              <h3 className="font-display text-3xl text-cream mb-10 text-glow">Engineered protection.</h3>
+              <div className="text-[10px] tracking-[0.3em] text-orange-glow mb-10 uppercase font-bold text-shadow-sm">
+                SOLIVA SUNWRAP
+              </div>
+              <h3 className="font-display text-3xl text-cream mb-10 text-glow">
+                Engineered protection.
+              </h3>
               <ul className="space-y-6">
                 {newWay.map((t) => (
-                  <li key={t} className="flex items-start gap-4 text-cream text-sm leading-relaxed font-medium">
+                  <li
+                    key={t}
+                    className="flex items-start gap-4 text-cream text-sm leading-relaxed font-medium"
+                  >
                     <span className="mt-2.5 inline-block h-px w-6 bg-orange-glow shadow-[0_0_10px_rgba(255,124,0,0.5)]" />
                     <span className="text-shadow-sm">{t}</span>
                   </li>

@@ -22,13 +22,15 @@ export function ProblemSection() {
   const containerRef = useScrollReveal();
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative w-full overflow-hidden bg-cinematic-warm py-24 md:py-32 perspective-2000"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="mx-auto max-w-2xl text-center reveal-on-scroll">
-          <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium">— THE PROBLEM</span>
+          <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium">
+            — THE PROBLEM
+          </span>
           <h2 className="font-display mt-6 text-4xl md:text-6xl text-brown-deep leading-[1.2]">
             Three failures we
             <br />
@@ -52,17 +54,65 @@ export function ProblemSection() {
                   0{i + 1}
                 </div>
               </div>
-              <h3 className="font-display mt-8 text-2xl tracking-[0.1em] text-brown-deep group-hover:text-orange-glow transition-colors">{b.title}</h3>
+              <h3 className="font-display mt-8 text-2xl tracking-[0.1em] text-brown-deep group-hover:text-orange-glow transition-colors">
+                {b.title}
+              </h3>
               <p className="mt-4 text-sm text-brown/70 leading-relaxed font-light">{b.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="reveal-on-scroll mx-auto mt-20 max-w-2xl text-center font-display text-2xl md:text-3xl italic text-brown-deep/60" style={{ transitionDelay: "400ms" }}>
+        <p
+          className="reveal-on-scroll mx-auto mt-20 max-w-2xl text-center font-display text-2xl md:text-3xl italic text-brown-deep/60"
+          style={{ transitionDelay: "400ms" }}
+        >
           "Makeshift solutions were never designed to protect you."
         </p>
+
+        {/* New Content Section */}
+        <div className="mt-32 border-t border-brown/5 pt-20 reveal-on-scroll">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center text-left">
+            <div className="space-y-6">
+              <h3 className="font-display text-3xl text-brown-deep">
+                The cost of <span className="italic">compromise.</span>
+              </h3>
+              <p className="text-brown/70 font-light leading-relaxed">
+                Every day you spend in the city is a day of micro-stress. Your skin, your breathing,
+                and your energy levels are constantly fighting against an environment that wasn't
+                designed with your wellbeing in mind.
+              </p>
+              <p className="text-brown/70 font-light leading-relaxed">
+                We believe you shouldn't have to choose between looking professional and being
+                protected. Soliva is the bridge between high fashion and high performance,
+                engineered for the modern urban warrior.
+              </p>
+            </div>
+            <div className="bg-[#1A1410] p-12 rounded-sm text-cream space-y-8 shadow-2xl">
+              <div>
+                <span className="font-mono text-[10px] tracking-widest text-orange-glow uppercase block mb-2">
+                  Impact Study
+                </span>
+                <div className="flex items-baseline gap-4">
+                  <span className="text-5xl font-display">84%</span>
+                  <span className="text-sm font-light text-cream/60">
+                    of urban commuters report fatigue due to heat and sweat.
+                  </span>
+                </div>
+              </div>
+              <div className="h-px bg-cream/10" />
+              <div>
+                <div className="flex items-baseline gap-4">
+                  <span className="text-5xl font-display">2.5x</span>
+                  <span className="text-sm font-light text-cream/60">
+                    higher UV exposure on asphalt surfaces than grassy areas.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
+
       {/* Cinematic Depth Element */}
       <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-orange-glow/5 blur-[120px] pointer-events-none" />
     </section>
@@ -73,32 +123,29 @@ function ProblemVisual({ kind }: { kind: string }) {
   if (kind === "slips") {
     return (
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 200" fill="none">
-        <path
-          d="M20 80 Q60 40 100 80 T180 80"
-          stroke="#f5f5dc"
-          strokeWidth="1"
-          opacity="0.6"
-        >
-          <animate attributeName="d" dur="6s" repeatCount="indefinite"
-            values="M20 80 Q60 40 100 80 T180 80; M20 100 Q60 60 100 100 T180 100; M20 80 Q60 40 100 80 T180 80" />
+        <path d="M20 80 Q60 40 100 80 T180 80" stroke="#f5f5dc" strokeWidth="1" opacity="0.6">
+          <animate
+            attributeName="d"
+            dur="6s"
+            repeatCount="indefinite"
+            values="M20 80 Q60 40 100 80 T180 80; M20 100 Q60 60 100 100 T180 100; M20 80 Q60 40 100 80 T180 80"
+          />
         </path>
-        <path
-          d="M20 110 Q60 70 100 110 T180 110"
-          stroke="#ff7c00"
-          strokeWidth="1"
-          opacity="0.5"
-        >
-          <animate attributeName="d" dur="7s" repeatCount="indefinite"
-            values="M20 110 Q60 70 100 110 T180 110; M20 130 Q60 90 100 130 T180 130; M20 110 Q60 70 100 110 T180 110" />
+        <path d="M20 110 Q60 70 100 110 T180 110" stroke="#ff7c00" strokeWidth="1" opacity="0.5">
+          <animate
+            attributeName="d"
+            dur="7s"
+            repeatCount="indefinite"
+            values="M20 110 Q60 70 100 110 T180 110; M20 130 Q60 90 100 130 T180 130; M20 110 Q60 70 100 110 T180 110"
+          />
         </path>
-        <path
-          d="M20 140 Q60 100 100 140 T180 140"
-          stroke="#f5f5dc"
-          strokeWidth="1"
-          opacity="0.4"
-        >
-          <animate attributeName="d" dur="8s" repeatCount="indefinite"
-            values="M20 140 Q60 100 100 140 T180 140; M20 160 Q60 120 100 160 T180 160; M20 140 Q60 100 100 140 T180 140" />
+        <path d="M20 140 Q60 100 100 140 T180 140" stroke="#f5f5dc" strokeWidth="1" opacity="0.4">
+          <animate
+            attributeName="d"
+            dur="8s"
+            repeatCount="indefinite"
+            values="M20 140 Q60 100 100 140 T180 140; M20 160 Q60 120 100 160 T180 160; M20 140 Q60 100 100 140 T180 140"
+          />
         </path>
       </svg>
     );
@@ -107,8 +154,21 @@ function ProblemVisual({ kind }: { kind: string }) {
     return (
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 200" fill="none">
         {[0, 1, 2, 3, 4].map((i) => (
-          <circle key={i} cx="100" cy="100" r={20 + i * 18} stroke="#ff7c00" strokeWidth="0.6" opacity={0.5 - i * 0.08}>
-            <animate attributeName="r" dur={`${3 + i * 0.5}s`} repeatCount="indefinite" values={`${20 + i * 18};${30 + i * 18};${20 + i * 18}`} />
+          <circle
+            key={i}
+            cx="100"
+            cy="100"
+            r={20 + i * 18}
+            stroke="#ff7c00"
+            strokeWidth="0.6"
+            opacity={0.5 - i * 0.08}
+          >
+            <animate
+              attributeName="r"
+              dur={`${3 + i * 0.5}s`}
+              repeatCount="indefinite"
+              values={`${20 + i * 18};${30 + i * 18};${20 + i * 18}`}
+            />
           </circle>
         ))}
       </svg>
@@ -132,7 +192,12 @@ function ProblemVisual({ kind }: { kind: string }) {
             opacity="0.5"
             strokeDasharray="4 4"
           >
-            <animate attributeName="opacity" dur={`${2 + (i % 4)}s`} repeatCount="indefinite" values="0.2;0.7;0.2" />
+            <animate
+              attributeName="opacity"
+              dur={`${2 + (i % 4)}s`}
+              repeatCount="indefinite"
+              values="0.2;0.7;0.2"
+            />
           </line>
         );
       })}

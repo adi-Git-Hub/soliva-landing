@@ -34,9 +34,15 @@ export function Hero() {
           </div>
         </div>
         <div className="hidden gap-14 text-[9px] tracking-[0.5em] text-[#3A2A1F]/40 md:flex font-light uppercase">
-          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">Experience</span>
-          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">Technology</span>
-          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">Journal</span>
+          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">
+            Experience
+          </span>
+          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">
+            Technology
+          </span>
+          <span className="hover:text-[#3A2A1F] transition-colors duration-500 cursor-pointer">
+            Journal
+          </span>
         </div>
         <button className="rounded-full border border-[#3A2A1F]/10 px-7 py-2.5 text-[9px] tracking-[0.4em] text-[#3A2A1F]/60 hover:bg-[#3A2A1F] hover:text-white transition-all duration-700 uppercase font-medium">
           Notify Me
@@ -71,6 +77,17 @@ export function Hero() {
               Coming Soon
             </p>
           </div>
+
+          {/* New Content: Mission Statement */}
+          <div className="overflow-hidden mt-12 max-w-2xl">
+            <p
+              className={`font-body text-xs md:text-sm font-light tracking-[0.2em] text-[#3A2A1F]/60 leading-relaxed transition-all duration-[3000ms] delay-[1500ms] ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+            >
+              Redefining urban movement through advanced textile engineering and timeless
+              aesthetics. <br className="hidden md:block" />
+              Designed for those who navigate the modern landscape with purpose.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -79,7 +96,9 @@ export function Hero() {
         className={`pointer-events-none absolute inset-x-0 bottom-0 h-[1px] bg-[#3A2A1F]/5 transition-all duration-[4000ms] delay-500 ${mounted ? "w-full" : "w-0"}`}
       />
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes lightSweep {
           0% { background-position: -200% 0; }
           100% { background-position: 200% 0; }
@@ -100,7 +119,9 @@ export function Hero() {
         .animate-float {
           animation: float 10s ease-in-out infinite;
         }
-      `}} />
+      `,
+        }}
+      />
     </section>
   );
 }
