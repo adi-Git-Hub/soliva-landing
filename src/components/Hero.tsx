@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import { SolivaLogo } from "./SolivaLogo";
 
-export function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+export function Hero({ isRevealed = false }: { isRevealed?: boolean }) {
   return (
     <section className="relative flex h-[100vh] w-full flex-col overflow-hidden bg-[#F9F6F0]">
       {/* Matte Premium Background */}
@@ -23,7 +17,7 @@ export function Hero() {
 
       {/* Premium Minimal Navbar */}
       <nav
-        className={`relative z-20 flex items-center justify-between px-8 py-10 md:px-16 transition-opacity duration-[2000ms] ${mounted ? "opacity-100" : "opacity-0"}`}
+        className="relative z-20 flex items-center justify-between px-8 py-10 md:px-16"
       >
         <div className="flex items-center group cursor-pointer">
           <div className="hidden md:block transition-transform duration-1000 ease-out hover:scale-105">
@@ -54,16 +48,16 @@ export function Hero() {
         <div className="flex flex-col items-center animate-float">
           {/* Logo Fade + Scale */}
           <div
-            className={`mb-12 transition-all duration-[2000ms] cubic-bezier(0.2, 0.8, 0.2, 1) ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+            className="mb-12"
             style={{ filter: "drop-shadow(0 10px 20px rgba(180,120,40,0.1))" }}
           >
             <SolivaLogo height={80} />
           </div>
 
           {/* Brand Identity Reveal */}
-          <div className="mb-6 overflow-hidden">
+          <div className="mb-6 overflow-hidden w-full px-4">
             <h1
-              className={`font-display text-6xl md:text-8xl lg:text-9xl tracking-[0.5em] uppercase font-light leading-none transition-all duration-[2500ms] ease-out ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.5em] uppercase font-light leading-none"
             >
               <span className="text-sweep">SOLIVA</span>
             </h1>
@@ -72,16 +66,16 @@ export function Hero() {
           {/* Status Label Fade-up */}
           <div className="overflow-hidden">
             <p
-              className={`font-body text-[10px] md:text-[11px] font-light tracking-[1em] text-[#3A2A1F]/40 uppercase transition-all duration-[3000ms] delay-1000 ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              className="font-body text-[10px] md:text-[11px] font-light tracking-[1em] text-[#3A2A1F]/40 uppercase"
             >
               Coming Soon
             </p>
           </div>
 
           {/* New Content: Mission Statement */}
-          <div className="overflow-hidden mt-12 max-w-2xl">
+          <div className="overflow-hidden mt-12 max-w-2xl hero-mission">
             <p
-              className={`font-body text-xs md:text-sm font-light tracking-[0.2em] text-[#3A2A1F]/60 leading-relaxed transition-all duration-[3000ms] delay-[1500ms] ${mounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              className="font-body text-xs md:text-sm font-light tracking-[0.2em] text-[#3A2A1F]/60 leading-relaxed"
             >
               Redefining urban movement through advanced textile engineering and timeless
               aesthetics. <br className="hidden md:block" />
@@ -93,7 +87,7 @@ export function Hero() {
 
       {/* Editorial Detail Line */}
       <div
-        className={`pointer-events-none absolute inset-x-0 bottom-0 h-[1px] bg-[#3A2A1F]/5 transition-all duration-[4000ms] delay-500 ${mounted ? "w-full" : "w-0"}`}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] bg-[#3A2A1F]/5 w-full"
       />
 
       <style

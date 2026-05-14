@@ -26,7 +26,7 @@ export function FinalCTA() {
           </div>
 
           <h2
-            className="reveal-on-scroll font-display mt-12 text-6xl md:text-8xl lg:text-9xl tracking-[0.05em] text-cream leading-[1.1] will-change-transform text-shadow-sm"
+            className="reveal-on-scroll font-display mt-12 text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.05em] text-cream leading-[1.1] will-change-transform text-shadow-sm"
             style={{
               transitionDelay: "200ms",
               textShadow:

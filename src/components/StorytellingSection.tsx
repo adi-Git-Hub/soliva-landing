@@ -44,9 +44,9 @@ export function StorytellingSection() {
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-[#F5EFE4]">
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex h-full w-[200vw]">
+        <motion.div style={{ x }} className="flex h-full w-[200%]">
           {/* PANEL 1: THE PROBLEM */}
-          <div className="relative flex h-full w-[100vw] items-center px-6 md:px-24">
+          <div className="relative flex h-full w-1/2 items-center px-6 md:px-24">
             <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 items-center gap-12 py-20">
               {/* Left: Cinematic Urban Visuals */}
               <motion.div
@@ -122,7 +122,7 @@ export function StorytellingSection() {
           </div>
 
           {/* PANEL 2: WHY SOLIVA */}
-          <div className="relative flex h-full w-[100vw] items-center px-6 md:px-24 bg-[#FDFBF7]">
+          <div className="relative flex h-full w-1/2 items-center px-6 md:px-24 bg-[#FDFBF7]">
             <div className="grid h-full w-full grid-cols-1 md:grid-cols-2 items-center gap-12 py-20">
               {/* Left: Content */}
               <motion.div

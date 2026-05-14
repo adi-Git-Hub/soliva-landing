@@ -90,14 +90,14 @@
   * {
     border-color: var(--color-border);
   }
-  html {
-    scroll-snap-type: y proximity;
-  }
   html,
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -344,17 +344,59 @@
   }
   .cinematic-3d {
     text-shadow:
-      0 1px 0 oklch(0.6 0.14 55),
-      0 2px 0 oklch(0.55 0.13 55),
-      0 3px 0 oklch(0.5 0.12 55),
-      0 4px 0 oklch(0.45 0.11 55),
-      0 5px 0 oklch(0.4 0.1 55),
-      0 6px 0 oklch(0.35 0.09 55),
-      0 8px 1px oklch(0 0 0 / 0.25),
-      0 12px 28px oklch(0 0 0 / 0.5),
-      0 0 40px oklch(0.72 0.19 50 / 0.45),
-      0 0 90px oklch(0.72 0.19 50 / 0.25);
+      0 1px 0 oklch(0.6 0.14 55 / 0.3),
+      0 2px 0 oklch(0.55 0.13 55 / 0.2),
+      0 4px 8px oklch(0 0 0 / 0.1),
+      0 8px 16px oklch(0 0 0 / 0.05);
   }
+
+  /* SCULPTED TYPOGRAPHY */
+  .text-sculpted {
+    color: var(--luxury-brown-dark);
+    text-shadow:
+      0.5px 0.5px 0px rgba(255, 255, 255, 0.4),
+      -0.5px -0.5px 0px rgba(0, 0, 0, 0.05),
+      0px 4px 8px rgba(58, 42, 31, 0.08);
+    letter-spacing: -0.01em;
+  }
+
+  .text-sculpted-light {
+    color: var(--luxury-brown-dark);
+    text-shadow:
+      0.3px 0.3px 0px rgba(255, 255, 255, 0.5),
+      0px 2px 4px rgba(58, 42, 31, 0.05);
+  }
+
+  .heading-luxury {
+    background: linear-gradient(180deg, var(--luxury-brown-dark) 0%, #5d4331 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(58, 42, 31, 0.08));
+  }
+
+  /* PREMIUM CARD DEPTH */
+  .card-premium-depth {
+    box-shadow:
+      0 10px 30px -10px rgba(58, 42, 31, 0.1),
+      0 20px 50px -15px rgba(58, 42, 31, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(58, 42, 31, 0.03);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-premium-depth:hover {
+    box-shadow:
+      0 30px 60px -20px rgba(58, 42, 31, 0.15),
+      0 40px 80px -25px rgba(58, 42, 31, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .image-cinematic-shadow {
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+  }
+
   .depth-float {
     animation: depthFloat 9s ease-in-out infinite;
     transform-style: preserve-3d;
@@ -387,20 +429,22 @@
     background: oklch(0.96 0.025 90 / 0.6);
     pointer-events: none;
     animation: particleFloat linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
   @keyframes particleFloat {
     0% {
-      transform: translateY(0) translateX(0);
+      transform: translate3d(0, 0, 0);
       opacity: 0;
     }
     10% {
-      opacity: 1;
+      opacity: 0.8;
     }
     90% {
-      opacity: 1;
+      opacity: 0.8;
     }
     100% {
-      transform: translateY(-100vh) translateX(40px);
+      transform: translate3d(40px, -100vh, 0);
       opacity: 0;
     }
   }
@@ -408,15 +452,21 @@
   /* NEW SCROLL UTILITIES */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    filter: blur(10px);
-    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform, opacity, filter;
+    transform: translateY(20px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
   }
   .reveal-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
+  }
+
+  .parallax-img,
+  .parallax-text {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
 
   .light-sweep {

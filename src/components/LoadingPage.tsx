@@ -31,8 +31,8 @@ export function LoadingPage({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#F9F6F0] overflow-hidden transition-all duration-[1500ms] cubic-bezier(0.2, 0.8, 0.2, 1) ${
-        exiting ? "opacity-0 scale-[1.02] blur-3xl pointer-events-none" : "opacity-100"
+      className={`fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#F9F6F0] overflow-hidden transition-all duration-[1200ms] cubic-bezier(0.2, 0.8, 0.2, 1) ${
+        exiting ? "opacity-0 scale-[1.05] pointer-events-none" : "opacity-100"
       }`}
     >
       {/* Matte Premium Background */}

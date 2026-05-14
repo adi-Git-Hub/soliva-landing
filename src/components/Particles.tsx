@@ -5,16 +5,16 @@ interface ParticlesProps {
   className?: string;
 }
 
-export function Particles({ count = 30, className = "" }: ParticlesProps) {
+export function Particles({ count = 20, className = "" }: ParticlesProps) {
   const particles = useMemo(
     () =>
       Array.from({ length: count }).map((_, i) => ({
         id: i,
         left: Math.random() * 100,
-        size: Math.random() * 3 + 1,
-        duration: Math.random() * 20 + 15,
+        size: Math.random() * 2 + 1, // Slightly smaller
+        duration: Math.random() * 15 + 10, // Faster duration for less simultaneous particles on screen
         delay: Math.random() * 10,
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.4 + 0.1,
       })),
     [count],
   );
@@ -33,6 +33,7 @@ export function Particles({ count = 30, className = "" }: ParticlesProps) {
             opacity: p.opacity,
             animationDuration: `${p.duration}s`,
             animationDelay: `${p.delay}s`,
+            willChange: "transform",
           }}
         />
       ))}
