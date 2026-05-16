@@ -10,6 +10,7 @@ import { LoadingPage } from "@/components/LoadingPage";
 import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,94 +27,71 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [loading, setLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.config({
-      ignoreMobileResize: true,
-      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
-      limitCallbacks: true,
+    // Global Lenis Smooth Scroll on Body (Natural Scroll)
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      infinite: false,
     });
 
-    gsap.ticker.lagSmoothing(1000 / 60, 16);
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // Ensure scroll locking is completely disabled
+    ScrollTrigger.normalizeScroll(false);
     
     gsap.config({
       force3D: true,
       nullTargetWarn: false,
     });
 
-    setMounted(true);
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
+    };
   }, []);
 
   useEffect(() => {
-    if (!loading && mounted && mainRef.current) {
-      // Cinematic Reveal Timeline
-      const tl = gsap.timeline({
-        defaults: { ease: "expo.out" }
-      });
+    if (!loading && mainRef.current) {
+      ScrollTrigger.refresh();
 
-      // 1. Initial State - main is already hidden via style
-      gsap.set(mainRef.current, { 
-        visibility: "visible",
-        autoAlpha: 1 
-      });
-
-      // Target Hero elements specifically
-      const hero = mainRef.current.querySelector('section');
-      if (!hero) return;
-
-      const heroBg = hero.querySelector('.pointer-events-none');
-      const heroLogo = hero.querySelector('.animate-float > div:first-child');
-      const heroTitle = hero.querySelector('h1');
-      const heroSubtitle = hero.querySelector('p'); // Status Label
-      const heroMission = hero.querySelector('.hero-mission');
-      const heroNav = hero.querySelector('nav');
-
-      const revealTargets = [heroLogo, heroTitle, heroSubtitle, heroMission, heroNav].filter(Boolean);
-
-      tl.set(revealTargets, { opacity: 0, y: 40 });
-
-      if (heroBg) {
-        tl.set(heroBg, { opacity: 0, scale: 1.1 });
-      }
-
-      // 2. Reveal Background from beneath
-      tl.fromTo(hero, 
-        { y: "10vh", autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 2.5, ease: "power4.out" }
-      );
-
-      if (heroBg) {
-        tl.to(heroBg, {
-          opacity: 1,
-          scale: 1,
-          duration: 3,
-          ease: "power2.out"
-        }, "-=2");
-      }
-
-      // 3. Staggered content reveal
-      tl.to(revealTargets, {
+      // Simple Reveal Animation for Content
+      gsap.to(mainRef.current, {
         opacity: 1,
-        y: 0,
-        duration: 2,
-        stagger: 0.2,
-        ease: "expo.out"
-      }, "-=1.8");
+        visibility: "visible",
+        duration: 1.5,
+        ease: "power2.out"
+      });
     }
-  }, [loading, mounted]);
-
-  if (!mounted) return null;
+  }, [loading]);
 
   return (
     <>
       {loading && <LoadingPage onComplete={() => setLoading(false)} />}
+      
+      {/* Cinematic Ambient Background (Now part of global flow) */}
+      <div className="fixed inset-0 bg-[#0c0c0c] z-[-1]">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none grain" />
+      </div>
+
       <main
         ref={mainRef}
-        className="flex min-h-screen flex-col bg-[#F9F6F0] overflow-x-hidden w-full"
+        className="flex min-h-screen flex-col bg-[#F9F6F0] w-full"
         style={{ opacity: 0, visibility: 'hidden' }}
       >
         <Hero isRevealed={!loading} />

@@ -2,34 +2,34 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const products = [
   {
-    name: "Blush Pink",
-    desc: "Soft Petal / Morning Dew",
+    name: "Soft Ivory",
+    desc: "Morning Mist / Pure Silk",
     status: "Launching First",
-    tone: "from-[oklch(0.95_0.05_10)] to-[oklch(0.85_0.1_15)]",
+    tone: "from-[#F7F3EE] to-[#EFE6DA]",
   },
   {
     name: "Classic Beige",
     desc: "Urban Sand / Desert Stone",
     status: "Premium Edition",
-    tone: "from-cream to-orange-glow/20",
+    tone: "from-[#EFE6DA] to-[#F3ECE2]",
   },
   {
-    name: "Zesty Lime",
-    desc: "Electric Citron / Fresh Bloom",
+    name: "Muted Taupe",
+    desc: "Woven Flax / Earthy Tone",
     status: "New Release",
-    tone: "from-[oklch(0.98_0.15_130)] to-[oklch(0.88_0.2_140)]",
+    tone: "from-[#F3ECE2] to-[#A08F84]/20",
   },
   {
-    name: "Green",
-    desc: "Forest Shade / Jungle Mist",
+    name: "Warm Umber",
+    desc: "Sunset Glow / Terracotta",
     status: "Natural Edition",
-    tone: "from-[oklch(0.85_0.12_150)] to-[oklch(0.65_0.15_160)]",
+    tone: "from-[#F3ECE2] to-[#F5820D]/15",
   },
   {
-    name: "Deep Blue",
-    desc: "Midnight Navy / Cobalt Deep",
+    name: "Deep Ebony",
+    desc: "Midnight Shade / Dark Textile",
     status: "Limited Edition",
-    tone: "from-[oklch(0.45_0.15_260)] to-[oklch(0.25_0.2_270)]",
+    tone: "from-[#EFE6DA] to-[#3A2A22]/20",
   },
 ];
 
