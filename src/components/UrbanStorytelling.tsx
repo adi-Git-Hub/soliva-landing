@@ -72,7 +72,7 @@ export function UrbanStorytelling() {
 
   return (
     <>
-      <section ref={sectionRef} className="relative bg-[#F5EFE6] overflow-hidden md:h-screen w-full z-0">
+      <section ref={sectionRef} className="relative bg-[#F5EFE6] overflow-hidden min-h-screen w-full z-10">
         {/* Cinematic Atmosphere Layer */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 opacity-[0.04] grain" />
@@ -81,7 +81,7 @@ export function UrbanStorytelling() {
 
         <div ref={containerRef} className="flex flex-col md:flex-row md:flex-nowrap md:w-[200%] h-auto md:h-screen items-center z-10">
           {/* PANEL 1 — EDITORIAL GRID PROBLEM */}
-          <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0">
+          <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0 bg-[#F5EFE6]">
             <div className="flex flex-col w-full space-y-16 md:space-y-24 max-w-[1400px] mx-auto">
               <div ref={p1TextRef} className="relative flex flex-col md:flex-row md:items-start justify-between gap-12">
                 <div className="max-w-2xl space-y-8 z-10">
@@ -171,8 +171,8 @@ export function UrbanStorytelling() {
         `}} />
       </section>
 
-      {/* Spacer to allow the next section to glide over this one */}
-      <div className="h-[250vh] w-full pointer-events-none bg-transparent" />
+      {/* Spacer to allow the next section to glide over this one - matching background to prevent black gaps */}
+      <div className="h-[350vh] w-full pointer-events-none bg-[#FDFBF9]" />
     </>
   );
 }

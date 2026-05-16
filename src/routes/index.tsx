@@ -91,7 +91,7 @@ function Index() {
 
       <main
         ref={mainRef}
-        className="flex min-h-screen flex-col bg-[#F9F6F0] w-full"
+        className="relative min-h-screen bg-[#F9F6F0] w-full"
         style={{ opacity: 0, visibility: 'hidden' }}
       >
         <Hero isRevealed={!loading} />

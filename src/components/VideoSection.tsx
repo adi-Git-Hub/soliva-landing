@@ -49,7 +49,7 @@ export function VideoSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen overflow-hidden bg-[#F9F6F0]">
+    <section ref={sectionRef} className="relative w-full h-screen overflow-hidden bg-[#F9F6F0] z-0">
       <div ref={textContentRef} className="absolute top-24 left-1/2 -translate-x-1/2 z-20 text-center w-full max-w-2xl px-6 pointer-events-none">
         <span className="text-[10px] tracking-[0.6em] text-[#3A2A1F]/40 uppercase font-medium">— SYSTEM CORE 01</span>
         <h2 className="heading-luxury text-sculpted font-display mt-4 text-4xl md:text-5xl lg:text-7xl text-[#3A2A1F] leading-tight">Built For Real <span className="italic">Daily Protection.</span></h2>

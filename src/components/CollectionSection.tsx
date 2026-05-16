@@ -42,9 +42,10 @@ export function CollectionSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-cinematic-warm py-24 md:py-32 perspective-2000"
+      className="relative w-full overflow-hidden bg-[#F7F3EE] py-24 md:py-32 perspective-2000 z-20"
     >
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
+      <div className="absolute inset-0 bg-cinematic-warm pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6 md:px-12 z-10">
         <div className="flex flex-col items-center text-center reveal-on-scroll mb-20">
           <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium mb-6">
             — PREVIEW COLLECTION
