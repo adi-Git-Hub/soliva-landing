@@ -143,12 +143,25 @@
   position: relative;
 }
 
+@utility editorial-lighting-path {
+  background: 
+    radial-gradient(1400px circle at 0% 0%, rgba(243, 221, 209, 0.45) 0%, transparent 80%),
+    radial-gradient(1600px circle at 100% 50%, rgba(247, 237, 231, 0.5) 0%, transparent 70%),
+    radial-gradient(1200px circle at 20% 90%, rgba(239, 201, 178, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
 @utility editorial-lighting {
   background: 
     radial-gradient(1200px circle at 0% 10%, rgba(243, 221, 209, 0.35) 0%, transparent 70%),
     radial-gradient(1400px circle at 100% 20%, rgba(247, 237, 231, 0.45) 0%, transparent 70%),
     radial-gradient(1000px circle at 50% 50%, rgba(239, 201, 178, 0.1) 0%, transparent 60%),
     radial-gradient(1200px circle at 85% 90%, rgba(187, 126, 97, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@utility footer-transition-glow {
+  background: linear-gradient(to bottom, transparent 0%, rgba(187, 126, 97, 0.1) 50%, rgba(58, 42, 34, 0.2) 100%);
   pointer-events: none;
 }
 
