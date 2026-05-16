@@ -73,7 +73,7 @@ export function UrbanStorytelling() {
   return (
     <>
       <section ref={sectionRef} className="relative bg-luxury-editorial overflow-hidden min-h-screen w-full z-10">
-        {/* 1. Base Mesh Layer — Subtle Texture */}
+        {/* 1. Base Layer — Minimal texture, no full-screen haze */}
         <div className="absolute inset-0 mesh-gradient opacity-15 pointer-events-none z-0" />
         
         {/* 2. Compositional Light Path — Guiding the eye through the layout */}
