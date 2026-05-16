@@ -42,12 +42,19 @@ export function CollectionSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-luxury-editorial mesh-gradient ambient-glow py-24 md:py-32 perspective-2000 z-20"
+      className="relative w-full overflow-hidden bg-luxury-editorial py-24 md:py-32 perspective-2000 z-20"
     >
-       {/* Cinematic Atmosphere Layer — Matching the continuous canvas */}
+      {/* 1. Cinematic Atmosphere Base — Soft Flowing Gradients */}
+      <div className="absolute inset-0 mesh-gradient opacity-60 pointer-events-none z-0" />
+      
+      {/* 2. Ambient Glow Blobs — High-end Cosmetic/Luxury feel */}
+      <div className="absolute inset-0 cinematic-glow-layer opacity-40 pointer-events-none z-0" />
+      
+      {/* 3. Focal Lighting — Depth behind primary content areas */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(243,221,210,0.2)_0%,transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(240,199,177,0.15)_0%,transparent_60%)]" />
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[80%] h-[40%] bg-[radial-gradient(ellipse_at_center,rgba(243,221,210,0.4)_0%,transparent_70%)]" />
+        <div className="absolute bottom-[20%] left-0 w-full h-[30%] bg-[radial-gradient(circle_at_30%_50%,rgba(239,200,176,0.15)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 soft-diffusion opacity-50" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 z-10">
@@ -55,10 +62,12 @@ export function CollectionSection() {
           <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium mb-6">
             — PREVIEW COLLECTION
           </span>
-          <h2 className="font-display text-5xl md:text-7xl text-brown-deep leading-[1.2]">
-            Five editions.
+          <h2 className="font-display text-5xl md:text-7xl text-brown-deep leading-[1.2] relative">
+            <span className="relative z-10">Five editions.</span>
             <br />
-            <span className="italic">One philosophy.</span>
+            <span className="italic relative z-10">One philosophy.</span>
+            {/* Subtle glow behind heading */}
+            <div className="absolute inset-0 -inset-x-20 bg-[radial-gradient(circle_at_center,rgba(245,130,13,0.04)_0%,transparent_70%)] blur-2xl -z-10" />
           </h2>
           <div className="mt-10 h-px w-16 bg-brown/20" />
           <p className="mt-10 max-w-lg text-sm md:text-base text-brown/60 leading-relaxed font-light">
@@ -140,6 +149,9 @@ export function CollectionSection() {
 
       {/* Marquee - More Integrated & Subtle */}
       <div className="reveal-on-scroll relative mt-32 border-y border-brown/5 bg-cream/20 py-8 overflow-hidden">
+        {/* Soft backlighting for marquee */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(243,221,210,0.3)_0%,transparent_80%)] -z-10" />
+        
         <div className="marquee flex w-max gap-20 whitespace-nowrap opacity-40">
           {loop.map((t, i) => (
             <span
