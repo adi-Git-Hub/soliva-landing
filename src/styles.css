@@ -136,53 +136,52 @@
 
 @utility bg-luxury-editorial {
   background: 
-    radial-gradient(circle at 5% 5%, #f9f4ef 0%, transparent 40%),
-    radial-gradient(circle at 95% 5%, #f6e9e1 0%, transparent 40%),
-    radial-gradient(circle at 95% 95%, #f4e1d7 0%, transparent 40%),
-    radial-gradient(circle at 5% 95%, #f2d8cc 0%, transparent 40%),
+    radial-gradient(circle at 0% 0%, #f9f5f0 0%, transparent 40%),
+    radial-gradient(circle at 100% 10%, #f7ebe3 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, #f8f1eb 0%, transparent 50%),
     #f8f1eb;
   position: relative;
 }
 
 @utility editorial-lighting {
   background: 
-    radial-gradient(1400px circle at 0% 10%, rgba(243, 221, 209, 0.6) 0%, transparent 70%),
-    radial-gradient(1600px circle at 100% 20%, rgba(247, 237, 231, 0.7) 0%, transparent 70%),
-    radial-gradient(1200px circle at 50% 50%, rgba(239, 201, 178, 0.3) 0%, transparent 60%),
-    radial-gradient(1400px circle at 10% 90%, rgba(216, 156, 121, 0.15) 0%, transparent 60%),
-    radial-gradient(1600px circle at 90% 100%, rgba(187, 126, 97, 0.2) 0%, transparent 60%);
+    radial-gradient(1200px circle at 0% 10%, rgba(243, 221, 209, 0.35) 0%, transparent 70%),
+    radial-gradient(1400px circle at 100% 20%, rgba(247, 237, 231, 0.45) 0%, transparent 70%),
+    radial-gradient(1000px circle at 50% 50%, rgba(239, 201, 178, 0.1) 0%, transparent 60%),
+    radial-gradient(1200px circle at 85% 90%, rgba(187, 126, 97, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
 @utility luxury-aura {
   background: 
-    radial-gradient(800px circle at center, rgba(243, 221, 209, 0.35) 0%, transparent 80%),
-    radial-gradient(600px circle at 20% 40%, rgba(247, 237, 231, 0.4) 0%, transparent 70%),
-    radial-gradient(600px circle at 80% 60%, rgba(239, 201, 178, 0.25) 0%, transparent 70%);
-  filter: blur(100px);
+    radial-gradient(800px circle at center, rgba(243, 221, 209, 0.2) 0%, transparent 80%),
+    radial-gradient(600px circle at 20% 40%, rgba(247, 237, 231, 0.25) 0%, transparent 70%),
+    radial-gradient(600px circle at 80% 60%, rgba(239, 201, 178, 0.15) 0%, transparent 70%);
+  filter: blur(120px);
   pointer-events: none;
 }
 
 @utility editorial-focal {
-  background: radial-gradient(circle at center, rgba(245, 130, 13, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(245, 130, 13, 0.05) 0%, transparent 70%);
   filter: blur(40px);
   pointer-events: none;
 }
 
 @utility cinematic-haze {
   background: 
-    radial-gradient(circle at 20% 30%, rgba(248, 241, 235, 0.6) 0%, transparent 70%),
-    radial-gradient(circle at 80% 70%, rgba(245, 231, 222, 0.5) 0%, transparent 70%),
-    linear-gradient(to bottom, transparent, rgba(248, 241, 235, 0.3), transparent);
-  filter: blur(120px);
+    radial-gradient(circle at 30% 40%, rgba(248, 241, 235, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(245, 231, 222, 0.25) 0%, transparent 60%);
+  filter: blur(100px);
   pointer-events: none;
 }
 
 @utility editorial-bloom {
   background: 
-    radial-gradient(circle at 50% 50%, rgba(243, 221, 209, 0.4) 0%, transparent 80%),
-    radial-gradient(circle at 10% 80%, rgba(216, 156, 121, 0.1) 0%, transparent 60%);
-  mix-blend-mode: multiply;
+    radial-gradient(circle at 50% 50%, rgba(243, 221, 209, 0.2) 0%, transparent 80%),
+    radial-gradient(circle at 10% 80%, rgba(216, 156, 121, 0.03) 0%, transparent 50%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
   opacity: 0.4;
   pointer-events: none;
 }
