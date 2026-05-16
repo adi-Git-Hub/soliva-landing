@@ -134,10 +134,50 @@
     linear-gradient(180deg, #3A2A22 0%, #2A1E17 100%);
 }
 
+@utility bg-luxury-editorial {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(240, 199, 177, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 15%, rgba(243, 221, 210, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(247, 237, 231, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 10% 80%, rgba(216, 154, 114, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(198, 132, 99, 0.08) 0%, transparent 50%),
+    #f6efe8;
+  position: relative;
+}
+
+@utility ambient-glow {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(800px circle at 50% -100px, rgba(245, 130, 13, 0.05), transparent),
+      radial-gradient(600px circle at 100% 80%, rgba(240, 199, 177, 0.1), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@utility mesh-gradient {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(20, 40%, 94%, 1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(25, 45%, 92%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(15, 50%, 95%, 1) 0, transparent 50%), 
+    radial-gradient(at 0% 50%, hsla(25, 30%, 93%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 50%, hsla(10, 40%, 94%, 1) 0, transparent 50%), 
+    radial-gradient(at 0% 100%, hsla(20, 35%, 92%, 1) 0, transparent 50%), 
+    radial-gradient(at 50% 100%, hsla(30, 40%, 94%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 100%, hsla(20, 40%, 95%, 1) 0, transparent 50%);
+}
+
+@utility cinematic-vignette {
+  box-shadow: inset 0 0 150px rgba(58, 42, 34, 0.03);
+}
+
 @utility bg-cinematic-warm {
   background:
     radial-gradient(ellipse 60% 50% at 80% 20%, rgba(245, 130, 13, 0.05), transparent 60%),
-    linear-gradient(180deg, var(--luxury-beige) 0%, var(--secondary) 100%);
+    linear-gradient(180deg, #f6efe8 0%, #f4e6dc 100%);
 }
 
 @utility text-glow {

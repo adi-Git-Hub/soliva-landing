@@ -84,14 +84,14 @@ function Index() {
     <>
       {loading && <LoadingPage onComplete={() => setLoading(false)} />}
       
-      {/* Cinematic Ambient Background - Switched to Cream to prevent black gaps */}
-      <div className="fixed inset-0 bg-[#F9F6F0] z-[-1]">
+      {/* Cinematic Ambient Background - Standardized to Luxury Editorial Canvas */}
+      <div className="fixed inset-0 bg-luxury-editorial mesh-gradient ambient-glow z-[-1]">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none grain" />
       </div>
 
       <main
         ref={mainRef}
-        className="relative min-h-screen bg-[#F9F6F0] w-full"
+        className="relative min-h-screen bg-transparent w-full"
         style={{ opacity: 0, visibility: 'hidden' }}
       >
         <Hero isRevealed={!loading} />

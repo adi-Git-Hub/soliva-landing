@@ -42,9 +42,14 @@ export function CollectionSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-[#F7F3EE] py-24 md:py-32 perspective-2000 z-20"
+      className="relative w-full overflow-hidden bg-luxury-editorial mesh-gradient ambient-glow py-24 md:py-32 perspective-2000 z-20"
     >
-      <div className="absolute inset-0 bg-cinematic-warm pointer-events-none" />
+       {/* Cinematic Atmosphere Layer — Matching the continuous canvas */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(243,221,210,0.2)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(240,199,177,0.15)_0%,transparent_60%)]" />
+      </div>
+
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 z-10">
         <div className="flex flex-col items-center text-center reveal-on-scroll mb-20">
           <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium mb-6">

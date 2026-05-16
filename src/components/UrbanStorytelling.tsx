@@ -72,17 +72,21 @@ export function UrbanStorytelling() {
 
   return (
     <>
-      <section ref={sectionRef} className="relative bg-[#F5EFE6] overflow-hidden min-h-screen w-full z-10">
-        {/* Cinematic Atmosphere Layer */}
+      <section ref={sectionRef} className="relative bg-luxury-editorial mesh-gradient ambient-glow cinematic-vignette overflow-hidden min-h-screen w-full z-10">
+        {/* Cinematic Atmosphere Layer — Intensified for Luxury Flow */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 opacity-[0.04] grain" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(61,46,38,0.03)_100%)]" />
+          <div className="absolute inset-0 opacity-[0.05] grain" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(240,199,177,0.15)_0%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(216,154,114,0.1)_0%,transparent_60%)]" />
         </div>
 
         <div ref={containerRef} className="flex flex-col md:flex-row md:flex-nowrap md:w-[200%] h-auto md:h-screen items-center z-10">
           {/* PANEL 1 — EDITORIAL GRID PROBLEM */}
-          <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0 bg-[#F5EFE6]">
-            <div className="flex flex-col w-full space-y-16 md:space-y-24 max-w-[1400px] mx-auto">
+          <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0 bg-transparent">
+            {/* Soft Ambient Layer Behind Grid */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,230,220,0.4)_0%,transparent_70%)] pointer-events-none" />
+            
+            <div className="flex flex-col w-full space-y-16 md:space-y-24 max-w-[1400px] mx-auto relative z-10">
               <div ref={p1TextRef} className="relative flex flex-col md:flex-row md:items-start justify-between gap-12">
                 <div className="max-w-2xl space-y-8 z-10">
                   <span className="block font-mono text-[9px] uppercase tracking-[0.8em] text-[#8B7B6E]">01 — THE UNSEEN REALITY</span>
@@ -114,8 +118,12 @@ export function UrbanStorytelling() {
           </div>
 
           {/* PANEL 2 — SYSTEM ARCHITECTURE */}
-          <div className="relative flex h-auto md:h-full w-full md:w-1/2 items-center bg-[#FDFBF9] px-10 md:px-24 py-24 md:py-0 flex-shrink-0 overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-center w-full max-w-[1400px] mx-auto">
+          <div className="relative flex h-auto md:h-full w-full md:w-1/2 items-center bg-transparent px-10 md:px-24 py-24 md:py-0 flex-shrink-0 overflow-hidden">
+             {/* Editorial Mesh for Panel 2 */}
+            <div className="absolute inset-0 mesh-gradient opacity-40 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(243,221,210,0.3)_0%,transparent_60%)] pointer-events-none" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-center w-full max-w-[1400px] mx-auto relative z-10">
               <div ref={p2VisualRef} className="relative aspect-square group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#F5EFE6] to-[#EFE7DC] rounded-[3.5rem] overflow-hidden" style={{ border: "1px solid rgba(90,60,30,0.08)", boxShadow: "0 20px 60px rgba(80,50,20,0.04)" }}>
                   <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: `radial-gradient(#4A382F 0.5px, transparent 0.5px)`, backgroundSize: "32px 32px" }} />
@@ -172,7 +180,7 @@ export function UrbanStorytelling() {
       </section>
 
       {/* Spacer to allow the next section to glide over this one - matching background to prevent black gaps */}
-      <div className="h-[350vh] w-full pointer-events-none bg-[#FDFBF9]" />
+      <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial mesh-gradient" />
     </>
   );
 }
