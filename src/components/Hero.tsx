@@ -15,7 +15,7 @@ export function Hero({ isRevealed = false }: { isRevealed?: boolean }) {
   const opacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative h-[120vh] w-full overflow-hidden bg-[#0c0c0c]">
+    <section ref={containerRef} className="relative h-[120vh] w-full overflow-hidden bg-[#F9F6F0]">
       {/* Sticky Wrapper for the Cinematic Scene */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-10">
         
@@ -30,7 +30,7 @@ export function Hero({ isRevealed = false }: { isRevealed?: boolean }) {
             style={{ backgroundImage: "url('/hero-image.png')" }}
           />
           {/* Atmospheric Layers */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#F9F6F0]/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#F9F6F0]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.1)_0%,transparent_70%)]" />
           <div className="absolute inset-0 opacity-[0.04] grain pointer-events-none mix-blend-overlay" />
         </div>

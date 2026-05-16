@@ -84,8 +84,8 @@ function Index() {
     <>
       {loading && <LoadingPage onComplete={() => setLoading(false)} />}
       
-      {/* Cinematic Ambient Background (Now part of global flow) */}
-      <div className="fixed inset-0 bg-[#0c0c0c] z-[-1]">
+      {/* Cinematic Ambient Background - Switched to Cream to prevent black gaps */}
+      <div className="fixed inset-0 bg-[#F9F6F0] z-[-1]">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none grain" />
       </div>
 
