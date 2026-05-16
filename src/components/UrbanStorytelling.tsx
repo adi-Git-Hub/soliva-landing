@@ -72,19 +72,31 @@ export function UrbanStorytelling() {
 
   return (
     <>
-      <section ref={sectionRef} className="relative bg-luxury-editorial mesh-gradient ambient-glow cinematic-vignette overflow-hidden min-h-screen w-full z-10">
-        {/* Cinematic Atmosphere Layer — Intensified for Luxury Flow */}
+      <section ref={sectionRef} className="relative bg-luxury-editorial overflow-hidden min-h-screen w-full z-10">
+        {/* 1. Base Mesh Layer */}
+        <div className="absolute inset-0 mesh-gradient opacity-30 pointer-events-none z-0" />
+        
+        {/* 2. Expansive Atmospheric Haze — Large blurred cream/champagne layers */}
+        <div className="absolute inset-0 cinematic-haze opacity-60 pointer-events-none z-0" />
+        
+        {/* 3. Editorial Lighting Orbs — oversized blurred gradient blooms */}
+        <div className="absolute inset-0 editorial-lighting opacity-50 pointer-events-none z-0" />
+        
+        {/* 4. Luxury Bloom — depth behind headings and content */}
+        <div className="absolute inset-0 editorial-bloom opacity-40 pointer-events-none z-0" />
+        
+        {/* 5. Subtle Details — Vignette and Grain */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 opacity-[0.05] grain" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(240,199,177,0.15)_0%,transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(216,154,114,0.1)_0%,transparent_60%)]" />
+          <div className="absolute inset-0 opacity-[0.02] grain" />
+          <div className="absolute inset-0 cinematic-vignette opacity-40" />
         </div>
 
-        <div ref={containerRef} className="flex flex-col md:flex-row md:flex-nowrap md:w-[200%] h-auto md:h-screen items-center z-10">
+        <div ref={containerRef} className="flex flex-col md:flex-row md:flex-nowrap md:w-[200%] h-auto md:h-screen items-center z-10 relative">
           {/* PANEL 1 — EDITORIAL GRID PROBLEM */}
           <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0 bg-transparent">
-            {/* Soft Ambient Layer Behind Grid */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,230,220,0.4)_0%,transparent_70%)] pointer-events-none" />
+             {/* Dynamic lighting for Panel 1 */}
+            <div className="absolute top-[10%] left-[5%] w-[80%] h-[50%] bg-[radial-gradient(ellipse_at_center,rgba(243,221,210,0.25)_0%,transparent_70%)] pointer-events-none -z-10 blur-3xl" />
+            <div className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] bg-[radial-gradient(circle_at_center,rgba(245,231,222,0.2)_0%,transparent_70%)] pointer-events-none -z-10 blur-2xl" />
             
             <div className="flex flex-col w-full space-y-16 md:space-y-24 max-w-[1400px] mx-auto relative z-10">
               <div ref={p1TextRef} className="relative flex flex-col md:flex-row md:items-start justify-between gap-12">
@@ -119,9 +131,9 @@ export function UrbanStorytelling() {
 
           {/* PANEL 2 — SYSTEM ARCHITECTURE */}
           <div className="relative flex h-auto md:h-full w-full md:w-1/2 items-center bg-transparent px-10 md:px-24 py-24 md:py-0 flex-shrink-0 overflow-hidden">
-             {/* Editorial Mesh for Panel 2 */}
-            <div className="absolute inset-0 mesh-gradient opacity-40 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(243,221,210,0.3)_0%,transparent_60%)] pointer-events-none" />
+             {/* Deep editorial lighting orbs for Panel 2 */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(243,221,210,0.35)_0%,transparent_70%)] pointer-events-none -z-10" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(239,201,178,0.15)_0%,transparent_70%)] pointer-events-none -z-10" />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-center w-full max-w-[1400px] mx-auto relative z-10">
               <div ref={p2VisualRef} className="relative aspect-square group">
@@ -180,7 +192,12 @@ export function UrbanStorytelling() {
       </section>
 
       {/* Spacer to allow the next section to glide over this one - matching background to prevent black gaps */}
-      <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial mesh-gradient" />
+      <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial relative overflow-hidden">
+         <div className="absolute inset-0 mesh-gradient opacity-30 pointer-events-none" />
+         <div className="absolute inset-0 cinematic-haze opacity-60 pointer-events-none" />
+         <div className="absolute inset-0 editorial-lighting opacity-50 pointer-events-none" />
+         <div className="absolute inset-0 editorial-bloom opacity-30 pointer-events-none" />
+      </div>
     </>
   );
 }
