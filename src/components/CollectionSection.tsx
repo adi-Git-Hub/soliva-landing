@@ -44,35 +44,8 @@ export function CollectionSection() {
       ref={containerRef}
       className="relative w-full overflow-hidden bg-luxury-editorial py-24 md:py-32 perspective-2000 z-20"
     >
-      {/* 1. Base Mesh Layer — Subtle Texture */}
-      <div className="absolute inset-0 mesh-gradient opacity-20 pointer-events-none z-0" />
-      
-      {/* 2. Compositional Light Path — Art-directed environment */}
-      <div className="absolute inset-0 editorial-lighting-path opacity-50 pointer-events-none z-0" />
-
-      {/* 3. REFERENCE RECREATION: LARGE GLOWING SPHERE (Planet) */}
-      <div className="absolute top-[20%] -right-[15%] w-[700px] h-[700px] cinematic-sphere opacity-80 blur-3xl pointer-events-none z-0" />
-      
-      {/* 4. REFERENCE RECREATION: FLOWING LIGHT WAVES (Ribbons) */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[10%] left-0 w-full h-[25%] cinematic-waves rotate-[-15deg] opacity-35" />
-        <div className="absolute bottom-[20%] left-0 w-full h-[35%] cinematic-waves rotate-[10deg] opacity-25" />
-      </div>
-
-      {/* 5. Focal Environment Details */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Soft orange ambient bloom at the bottom right */}
-        <div className="absolute bottom-0 right-0 w-[50%] h-[40%] bg-[radial-gradient(circle_at_bottom_right,rgba(216,156,121,0.2)_0%,transparent_70%)] blur-3xl" />
-        {/* Transition into dark footer */}
-        <div className="absolute bottom-0 left-0 w-full h-[20%] footer-transition-glow opacity-50" />
-        <div className="absolute inset-0 cinematic-vignette opacity-20" />
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 z-10">
         <div className="flex flex-col items-center text-center reveal-on-scroll mb-20 relative">
-          {/* Heading Aura — Embedding content into atmosphere */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(247,237,231,0.7)_0%,transparent_70%)] blur-[100px] -z-10" />
-          
           <span className="text-[10px] tracking-[0.3em] text-orange-glow uppercase font-medium mb-6">
             — PREVIEW COLLECTION
           </span>
@@ -95,11 +68,8 @@ export function CollectionSection() {
               className="reveal-on-scroll group relative flex flex-col transition-all duration-1000"
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              {/* Card Ambient Glow Focal Point */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(243,221,210,0.3)_0%,transparent_70%)] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
-              
               {/* Immersive Image Container */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-brown/5 bg-cream transition-all duration-700 group-hover:shadow-[0_30px_60px_-15px_rgba(122,73,0,0.15)] group-hover:-translate-y-1">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-brown/5 bg-cream transition-all duration-700 group-hover:shadow-[0_30px_60px_-15px_rgba(122,73,0,0.12)] group-hover:-translate-y-1">
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${p.tone} opacity-80 group-hover:opacity-100 transition-opacity duration-700`}
                 />
@@ -164,9 +134,6 @@ export function CollectionSection() {
 
       {/* Marquee - More Integrated & Subtle */}
       <div className="reveal-on-scroll relative mt-32 border-y border-brown/5 bg-cream/20 py-8 overflow-hidden">
-        {/* Stronger Marquee Backlighting */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(243,221,210,0.5)_0%,transparent_80%)] -z-10 blur-xl" />
-        
         <div className="marquee flex w-max gap-20 whitespace-nowrap opacity-40">
           {loop.map((t, i) => (
             <span

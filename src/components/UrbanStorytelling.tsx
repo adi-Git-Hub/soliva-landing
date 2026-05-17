@@ -73,37 +73,15 @@ export function UrbanStorytelling() {
   return (
     <>
       <section ref={sectionRef} className="relative bg-luxury-editorial overflow-hidden min-h-screen w-full z-10">
-        {/* 1. Base Mesh Layer — Subtle Texture */}
-        <div className="absolute inset-0 mesh-gradient opacity-15 pointer-events-none z-0" />
-        
-        {/* 2. Compositional Light Path — Art-directed environment */}
-        <div className="absolute inset-0 editorial-lighting-path opacity-60 pointer-events-none z-0" />
-
-        {/* 3. REFERENCE RECREATION: LARGE GLOWING SPHERE (Planet) */}
-        {/* Positioned on the right as per reference image */}
-        <div className="absolute top-[10%] -right-[10%] w-[600px] h-[600px] cinematic-sphere opacity-90 blur-3xl pointer-events-none z-0" />
-        
-        {/* 4. REFERENCE RECREATION: FLOWING LIGHT WAVES (Ribbons) */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[20%] left-0 w-full h-[30%] cinematic-waves rotate-[-12deg] opacity-40" />
-          <div className="absolute bottom-[30%] left-0 w-full h-[40%] cinematic-waves rotate-[8deg] opacity-30" />
-        </div>
-
-        {/* 5. Subtle Details — Grain and Vignette */}
+        {/* Cinematic Atmosphere Layer */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 opacity-[0.01] grain" />
-          <div className="absolute inset-0 cinematic-vignette opacity-20" />
+          <div className="absolute inset-0 opacity-[0.04] grain" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(61,46,38,0.03)_100%)]" />
         </div>
 
         <div ref={containerRef} className="flex flex-col md:flex-row md:flex-nowrap md:w-[200%] h-auto md:h-screen items-center z-10 relative">
           {/* PANEL 1 — EDITORIAL GRID PROBLEM */}
           <div className="relative flex flex-col h-auto md:h-full w-full md:w-1/2 justify-center px-10 md:px-24 py-24 md:py-0 flex-shrink-0">
-             {/* Directed lighting behind Panel 1 Header — Content Embedded in Light */}
-            <div className="absolute top-[15%] left-[5%] w-[60%] h-[40%] bg-[radial-gradient(ellipse_at_center,rgba(243,221,210,0.4)_0%,transparent_70%)] pointer-events-none -z-10 blur-[80px]" />
-            
-            {/* Fix left visual washout with localized champagne backing */}
-            <div className="absolute bottom-[10%] left-[5%] w-[80%] h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(247,235,227,0.3)_0%,transparent_70%)] pointer-events-none -z-10 blur-3xl" />
-
             <div className="flex flex-col w-full space-y-16 md:space-y-24 max-w-[1400px] mx-auto relative z-10">
               <div ref={p1TextRef} className="relative flex flex-col md:flex-row md:items-start justify-between gap-12">
                 <div className="max-w-2xl space-y-8 z-10">
@@ -120,9 +98,6 @@ export function UrbanStorytelling() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
                 {problemPoints.map((point) => (
                   <div key={point.id} className="problem-card-container flex-shrink-0 space-y-6 group cursor-pointer relative">
-                    {/* Subtle bloom behind cards */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(243,221,210,0.2)_0%,transparent_70%)] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
-                    
                     <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-[#EFE7DC] transition-all duration-1000 group-hover:scale-105" style={{ border: "1px solid rgba(90,60,30,0.10)", boxShadow: "0 10px 30px rgba(80,50,20,0.05)" }}>
                       <img src={point.image} className="h-full w-full object-cover grayscale-[0.2] contrast-[1.05] brightness-[0.98] transition-transform duration-[2000ms] group-hover:scale-110" alt={point.title} />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E26]/30 via-transparent to-transparent opacity-60" />
@@ -140,10 +115,6 @@ export function UrbanStorytelling() {
 
           {/* PANEL 2 — SYSTEM ARCHITECTURE */}
           <div className="relative flex h-auto md:h-full w-full md:w-1/2 items-center bg-transparent px-10 md:px-24 py-24 md:py-0 flex-shrink-0 overflow-hidden">
-             {/* Dynamic editorial lighting for Panel 2 — Integrated with content */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(243,221,210,0.4)_0%,transparent_70%)] pointer-events-none -z-10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(239,201,178,0.2)_0%,transparent_70%)] pointer-events-none -z-10" />
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-center w-full max-w-[1400px] mx-auto relative z-10">
               <div ref={p2VisualRef} className="relative aspect-square group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#F5EFE6] to-[#EFE7DC] rounded-[3.5rem] overflow-hidden" style={{ border: "1px solid rgba(90,60,30,0.08)", boxShadow: "0 20px 60px rgba(80,50,20,0.04)" }}>
@@ -156,9 +127,6 @@ export function UrbanStorytelling() {
               </div>
               <div ref={p2TextRef} className="space-y-16 md:space-y-20">
                 <div className="space-y-8 relative">
-                   {/* Heading support lighting */}
-                  <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(247,237,231,0.5)_0%,transparent_70%)] -z-10 blur-2xl" />
-                  
                   <span className="block font-mono text-[10px] uppercase tracking-[0.8em] text-[#D9772B]">02 — THE RATIONALE</span>
                   <h2 className="font-display text-sculpted text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] tracking-[-0.03em] text-[#4A382F]">Engineered <br /><span className="italic font-normal opacity-90">Movement.</span></h2>
                   <p className="max-w-xl text-sm md:text-base text-[#8B7B6E] leading-relaxed font-light italic">Soliva reimaged protection not as a temporary layer, but as a system of defense that understands the geometry of the commute.</p>
@@ -179,11 +147,8 @@ export function UrbanStorytelling() {
           </div>
         </div>
 
-        {/* LUXURY FOOTER STRIP — Transition into dark footer with compositional glow */}
+        {/* LUXURY FOOTER STRIP */}
         <div className="hidden md:flex fixed bottom-0 left-0 right-0 z-50 w-full px-16 py-3.5 items-center justify-between border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.2)] backdrop-blur-2xl bg-gradient-to-r from-[#2A1A12] via-[#3A2418] to-[#2A1A12]">
-          {/* Subtle transition glow above footer */}
-          <div className="absolute -top-[100%] left-0 w-full h-[100%] footer-transition-glow pointer-events-none -z-10" />
-          
           <div className="flex items-center gap-12">
             <div className="opacity-90 hover:opacity-100 transition-opacity duration-500 pr-10 border-r border-white/5"><SolivaLogo height={24} className="text-white" /></div>
             <div className="flex items-center gap-12">
@@ -207,14 +172,7 @@ export function UrbanStorytelling() {
       </section>
 
       {/* Spacer to allow the next section to glide over this one - matching background to prevent black gaps */}
-      <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial relative overflow-hidden">
-         <div className="absolute inset-0 mesh-gradient opacity-15 pointer-events-none" />
-         <div className="absolute inset-0 editorial-lighting-path opacity-50 pointer-events-none" />
-         {/* REFERENCE RECREATION: TRANSITION SPHERE */}
-         <div className="absolute bottom-[10%] -right-[5%] w-[400px] h-[400px] cinematic-sphere opacity-70 blur-3xl pointer-events-none" />
-         {/* Footer Transition Bloom */}
-         <div className="absolute bottom-0 left-0 w-full h-[30%] bg-[radial-gradient(circle_at_bottom,rgba(187,126,97,0.2)_0%,transparent_70%)] blur-3xl pointer-events-none" />
-      </div>
+      <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial relative overflow-hidden" />
     </>
   );
 }
