@@ -73,13 +73,23 @@ export function UrbanStorytelling() {
   return (
     <>
       <section ref={sectionRef} className="relative bg-luxury-editorial overflow-hidden min-h-screen w-full z-10">
-        {/* 1. Base Layer — Minimal texture, no full-screen haze */}
+        {/* 1. Base Mesh Layer — Subtle Texture */}
         <div className="absolute inset-0 mesh-gradient opacity-15 pointer-events-none z-0" />
         
-        {/* 2. Compositional Light Path — Guiding the eye through the layout */}
+        {/* 2. Compositional Light Path — Art-directed environment */}
         <div className="absolute inset-0 editorial-lighting-path opacity-60 pointer-events-none z-0" />
+
+        {/* 3. REFERENCE RECREATION: LARGE GLOWING SPHERE (Planet) */}
+        {/* Positioned on the right as per reference image */}
+        <div className="absolute top-[10%] -right-[10%] w-[600px] h-[600px] cinematic-sphere opacity-90 blur-3xl pointer-events-none z-0" />
         
-        {/* 3. Subtle Atmosphere Details — Grain and Vignette */}
+        {/* 4. REFERENCE RECREATION: FLOWING LIGHT WAVES (Ribbons) */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute top-[20%] left-0 w-full h-[30%] cinematic-waves rotate-[-12deg] opacity-40" />
+          <div className="absolute bottom-[30%] left-0 w-full h-[40%] cinematic-waves rotate-[8deg] opacity-30" />
+        </div>
+
+        {/* 5. Subtle Details — Grain and Vignette */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 opacity-[0.01] grain" />
           <div className="absolute inset-0 cinematic-vignette opacity-20" />
@@ -200,6 +210,8 @@ export function UrbanStorytelling() {
       <div className="h-[350vh] w-full pointer-events-none bg-luxury-editorial relative overflow-hidden">
          <div className="absolute inset-0 mesh-gradient opacity-15 pointer-events-none" />
          <div className="absolute inset-0 editorial-lighting-path opacity-50 pointer-events-none" />
+         {/* REFERENCE RECREATION: TRANSITION SPHERE */}
+         <div className="absolute bottom-[10%] -right-[5%] w-[400px] h-[400px] cinematic-sphere opacity-70 blur-3xl pointer-events-none" />
          {/* Footer Transition Bloom */}
          <div className="absolute bottom-0 left-0 w-full h-[30%] bg-[radial-gradient(circle_at_bottom,rgba(187,126,97,0.2)_0%,transparent_70%)] blur-3xl pointer-events-none" />
       </div>
